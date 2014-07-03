@@ -10,7 +10,8 @@ union all
 select 'beta', 2 as wanted from dual
 )
 select * from data
-where bitand(wanted, 2) = 0; -- gets you appears_in_both and alpha
+where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 
---where bitand(wanted, 1) = 0; -- gets you appears_in_both and beta
+--where bitand(wanted, 6) <> 0; -- gets you appears_in_both and beta (4+2)
+
 ```
