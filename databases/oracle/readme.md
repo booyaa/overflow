@@ -15,6 +15,10 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 --where bitand(wanted, 6) <> 0; -- gets you appears_in_both and beta (4+2)
 
 ```
+##Functions
+
+```select substring('foobar', -3) from dual; -- returns "bar"```
+```select substring('foobar', 0, 3) from dual; -- returns "foo"```
 
 ##Tracing
 
