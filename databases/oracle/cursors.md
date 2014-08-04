@@ -1,5 +1,6 @@
 ## How to use cursors to return a record set
 
+n.b. if you need something more complicate like a composite record/type you'll need to create code in package.
 
 ```sql
 -- requirements: you've got access to the data dictionary or gtfo
