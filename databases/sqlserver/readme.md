@@ -1,3 +1,11 @@
+## date arithemetic
+
+### diff
+
+```select datediff(d, '2014-10-01', getdate())```
+
+where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library/ms189794.aspx
+
 ## conversion
 
 ###from int date 20141009 to datetime
