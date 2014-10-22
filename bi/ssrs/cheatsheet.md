@@ -38,3 +38,9 @@ replace the previous query with this expression
 ```
 
 You'll no longer be able to map or refresh fields until you revert back to the Design stage. I've tried specifying a valid value in the XML parameter, but SSRS 2008 gleefully ignores it.
+
+#TODO
+
+Where Report Services files logs live
+
+```X:\Microsoft SQL Server\MSRS10_50.MSSQLSERVER\Reporting Services\LogFiles```
