@@ -14,6 +14,30 @@
 
 where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library/ms189794.aspx
 
+## if else
+
+```
+DECLARE @jobid INT
+
+WITH crraaaazzzzy AS (
+	SELECT 1 jobid
+	UNION ALL
+	SELECT 2 jobid
+	UNION ALL
+	SELECT 3 jobid
+)
+
+
+SELECT @jobid = MAX(@jobid)  
+FROM crraaaazzzzy
+IF @jobid IS NOT NULL 
+BEGIN
+	PRINT 'do something with max jobid: ' + CONVERT(VARCHAR(3),@jobid )
+	PRINT 'idk like delete shit...'
+END
+ELSE
+	PRINT 'no records to delete'
+```
 
 ### inserts
 
