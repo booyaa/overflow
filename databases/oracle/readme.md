@@ -33,6 +33,17 @@ sqlplus /nolog
 connect / as sysdba
 ```
 
+###editing command history
+
+
+```
+SET EDITFILE "foo.buf"
+DEFINE _EDITOR=vi
+```
+
+##resources
+* http://www.orafaq.com/wiki/SQL*Plus_FAQ
+* 
 ##Tracing
 
 ###Registry
