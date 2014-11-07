@@ -22,6 +22,16 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
+##sqlplus
+
+###sysing up
+
+this assumes you're in the oracle admin group for what ever your os is. also ```/nolog``` works in linux which is bloody insane.
+
+```
+sqlplus /nolog
+connect / as sysdba
+```
 
 ##Tracing
 
