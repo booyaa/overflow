@@ -38,14 +38,12 @@ where some_date_stamp between TO_DATE('14-FEB-14 14:14:14', 'DD-MON_YY HH24:MI:S
 ###explain plan usage
 
 ```sql
-explain plan for
-  select *
-  from foo;
-  
-SELECT PLAN_TABLE_OUTPUT FROM TABLE (DBMS_XPLAN.DISPLAY());
+explain plan for select * from foo where bar='true';
+select * from table(dbms_xplan.display);
 ```
 
 alarm bells:
+* keep an eye out for cost, partition ranges and table access.
 * table access full = full table scan
 * indexes not being touched
 * partition range is not single or iterator not invoked
