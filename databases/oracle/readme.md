@@ -22,7 +22,56 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
+
+##Queries
+
+###selecting by time range
+
+assume that some_date_stamp is date type.
+
+```
+select * 
+from foo 
+where some_date_stamp between TO_DATE('14-FEB-14 14:14:14', 'DD-MON_YY HH24:MI:SS) and TO_DATE('14-FEB-14 15:15:15', 'DD-MON_YY HH24:MI:SS)
+```
+
+###explain plan usage
+
+```sql
+explain plan for
+  select *
+  from foo;
+  
+SELECT PLAN_TABLE_OUTPUT FROM TABLE (DBMS_XPLAN.DISPLAY());
+```
+
+alarm bells:
+* table access full = full table scan
+* indexes not being touched
+* partition range is not single or iterator not invoked
+
+useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
+
+
 ##sqlplus
+
+###defaults
+####for scripting
+
+```
+SET LINESIZE 90
+SET PAGESIZE 100
+SET WRAP OFF
+```
+
+####interactive
+
+```
+col <field name> format a15 
+set pagesize 25
+```
+
+
 
 ###sysing up
 
