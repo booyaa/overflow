@@ -56,3 +56,10 @@ TraceFileName=C:\odpnet4.trc
 ```
 
 Trace files updated after you close the connection / application.
+
+##Unlock
+
+```
+select username, account_status from dba_users; -- to check for locked accounts 
+alter user USERNAME account unlock;
+```
