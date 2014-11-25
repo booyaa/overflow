@@ -69,8 +69,15 @@ col <field name> format a15
 set pagesize 25
 ```
 
+###spooling
 
-
+```
+SPOOL some_shit.sql
+select 'insert into foo(id) values(' || id || ');' from bar
+/
+SPOOL OFF
+@some_shit.sql
+```
 ###sysing up
 
 this assumes you're in the oracle admin group for what ever your os is. also ```/nolog``` works in linux which is bloody insane.
@@ -90,7 +97,7 @@ DEFINE _EDITOR=vi
 
 ##resources
 * http://www.orafaq.com/wiki/SQL*Plus_FAQ
-* 
+
 ##Tracing
 
 ###Registry
