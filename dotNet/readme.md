@@ -1,7 +1,20 @@
-##initialise an array
+##Detect 64 bit architecture
+
+```CSharp
+// for .NET 4.0 onwards
+if (Environment.Is64BitProcess)
+    Console.WriteLine("64-bit process");
+else
+    Console.WriteLine("32-bit process");
+```
+source (and alternatives for .NET lower than 4.0): http://www.blackwasp.co.uk/Is64BitProcess.aspx
+
+##TODO: Emumerating over linq object
+
+##Initialise an array
 ```string[] urmum = new string[] { "is teh cool", "bakes a mean cookie", "fibble" };```
 
-##initialise a class
+##Initialise a class
 
 ```
 public class Poop {
@@ -14,8 +27,8 @@ public class Poop {
 Poop mrHanky = new Poop() { name = "mrHanky", linkage = 5 };
 ```
 
-##xml to linq
 
+##XML to Linq
 
 ###How to pass XElement XML as a string
 
@@ -36,7 +49,7 @@ foreach (XElement e in childList)
   Console.WriteLine(e);
 ```
 
-###How to pass XElement XML as a file
+###Pass XElement XML as a file
 
 Source: http://msdn.microsoft.com/en-us/library/bb675196(v=vs.100).aspx
 ```
@@ -48,6 +61,3 @@ foreach (XElement e in childList)
     Console.WriteLine(e);
 
 ```
-
-
-##emumerating over linq object
