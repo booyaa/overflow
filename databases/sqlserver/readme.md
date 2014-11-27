@@ -45,14 +45,13 @@ ELSE
 
 ```select * into foo_backup from foo```
 
-
 #### intos
-```insert into foo(fizz,buzz)
+
+```sql
+insert into foo(fizz,buzz)
   select [fizz], '3123' [buzz]
   from bar
 ```
-
-
 
 ## openquery oracle through a linked server
 
