@@ -1,12 +1,12 @@
 
-## conversion
+## _C_onversion
 
 ###from int date 20141009 to datetime
 
 
 ```select cast(cast(DateAsInt as varchar(10)) as date```
 
-## date arithemetic
+## _D_ate arithemetic
 
 ### diff
 
@@ -14,7 +14,7 @@
 
 where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library/ms189794.aspx
 
-## if else
+## _I_f else
 
 ```
 DECLARE @jobid INT
@@ -53,6 +53,21 @@ insert into foo(fizz,buzz)
   from bar
 ```
 
-## openquery oracle through a linked server
+## _O_penquery oracle through a linked server
 
 ```select * FROM OPENQUERY(ORCL_LINKSVR, 'SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM ALL_OBJECTS WHERE OBJECT_NAME=''FOO''')```
+
+## _T_ransactions
+
+```
+BEGIN TRAN foo
+
+UPDATE foo SET bar='OH NOES!'
+GO
+
+/* output 
+(5000 rows(s) affected) <--- ZOMG ZOMG! NOOOO! *cries*faints*
+*/
+
+ROLLBACK TRAN foo -- and breath again
+```
