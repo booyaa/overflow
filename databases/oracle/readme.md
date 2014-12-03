@@ -98,6 +98,40 @@ DEFINE _EDITOR=vi
 ##resources
 * http://www.orafaq.com/wiki/SQL*Plus_FAQ
 
+##Temporal queries
+
+###AS OF
+
+keywords: flashback, scn
+
+```
+select * 
+from foo
+as of timestamp(systimestamp - INTERVAL '30' minute(1)); -- alt notation 30 mins ago
+```
+
+```
+select * 
+from foo
+as of timestamp(sysdate-1/24); -- an hour ago
+```
+
+###SCN to timestamp (another alternative way to view the data, use rowid for deduping)
+
+```
+select SCN_TO_TIMESTAMP(ORA_ROWSCN)
+from foo
+
+/* example output
+ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
+---------- ----------------------------
+   9.5E+12 02-DEC-14 09.43.42.000000000 
+   9.5E+12 02-DEC-14 09.43.42.000000000 
+   9.5E+12 02-DEC-14 10.25.33.000000000 
+   9.5E+12 02-DEC-14 13.08.14.000000000
+*/
+```
+
 ##Tracing
 
 ###Registry
