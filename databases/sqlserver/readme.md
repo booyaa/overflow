@@ -53,6 +53,27 @@ insert into foo(fizz,buzz)
   from bar
 ```
 
+## _M_erge
+
+```sql
+MERGE [dbo].[TargetTable] AS t
+USING (SELECT column_list FROM [dbo].[SourceTable]) AS s -- this could have been table instead of a subselect
+	ON  t.thisId = s.thatId
+WHEN MATCHED THEN
+	UPDATE -- existing records
+		SET t.foo = s.bar
+			,t.fizz = s.buzz -- don't stick t.thisId here unless you want people to point and laugh at you
+WHEN NOT MATCHED THEN
+	INSERT (t.column_list)
+	VALUES(s.column_list) -- you can also transform source data here
+;
+```
+
+source: http://msdn.microsoft.com/en-us/library/bb510625%28d=printer,v=sql.110%29.aspx
+
+todo: how can we use the OUTPUT clause to pump data into an audit trail w/o using triggers.
+
+
 ## _O_penquery oracle through a linked server
 
 ```select * FROM OPENQUERY(ORCL_LINKSVR, 'SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM ALL_OBJECTS WHERE OBJECT_NAME=''FOO''')```
