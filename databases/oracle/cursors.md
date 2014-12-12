@@ -1,4 +1,24 @@
-## How to use cursors to return a record set
+##Parameters
+
+```
+SET SERVEROUTPUT ON
+DECLARE
+  CURSOR c_objects(p_owner VARCHAR2, p_type VARCHAR2) 
+  IS
+  SELECT object_name
+    FROM all_objects
+   WHERE owner=p_owner AND object_type=p_type;
+    
+BEGIN   
+  FOR v_rec IN c_objects('foo', 'TABLE')
+  LOOP
+    DBMS_OUTPUT.put_line(v_rec.object_name);
+  END LOOP;
+END;
+/
+```
+
+##Returning a record set
 
 n.b. if you need something more complicate like a composite record/type you'll need to create code in package.
 
