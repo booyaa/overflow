@@ -1,4 +1,4 @@
-##Bitmasks
+##_B_itmasks
 
 ```sql
 with data as
@@ -15,7 +15,7 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 --where bitand(wanted, 6) <> 0; -- gets you appears_in_both and beta (4+2)
 
 ```
-##Functions
+##_F_unctions
 
 ###substring
 ```sql
@@ -23,7 +23,16 @@ select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
 
-##Queries
+##_P_rivs
+
+```GRANT ON object_name TO user_or_role```
+```REVOKE ON object_name FROM user_or_role```
+
+###Role or user
+
+Grant on role whenever possible, but for dynamic sql sprocs you need to grant explictly on user. Otherwise you'll get an ORA-00942 Table or view not found.
+
+##_Q_ueries
 
 ###selecting by time range
 
@@ -51,7 +60,7 @@ alarm bells:
 useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
 
-##sqlplus
+##_s_qlplus
 
 ###defaults
 ####for scripting
@@ -98,7 +107,7 @@ DEFINE _EDITOR=vi
 ##resources
 * http://www.orafaq.com/wiki/SQL*Plus_FAQ
 
-##Temporal queries
+##_T_emporal queries
 
 ###AS OF
 
@@ -132,7 +141,7 @@ ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
 */
 ```
 
-##Tracing
+##_T_racing
 
 ###Registry
 
