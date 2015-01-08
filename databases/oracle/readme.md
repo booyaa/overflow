@@ -23,6 +23,17 @@ select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
 
+##_L_imiting rows
+
+An alternative to rownum (which runs before an ORDER BY) is to use FETCH.
+
+```sql
+SELECT *
+   FROM FOO
+   ORDER BY widget_price
+   FETCH FIRST 50 PERCENT ROWS ONLY;
+```
+
 ##_P_rivs
 
 ```GRANT ON object_name TO user_or_role```
