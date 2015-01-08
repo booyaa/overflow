@@ -43,6 +43,7 @@ SELECT *
 
 Grant on role whenever possible, but for dynamic sql sprocs you need to grant explictly on user. Otherwise you'll get an ORA-00942 Table or view not found.
 
+
 ##_Q_ueries
 
 ###selecting by time range
@@ -71,7 +72,16 @@ alarm bells:
 useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
 
-##_s_qlplus
+##_S_ampling
+
+```sql
+SELECT   foo,
+         DBMS_RANOMD.value() as rnd_no
+   FROM bar
+   ORDER BY rnd_no --gives you randomly sorted
+   FETCH FIRST 5 ROWS ONLY; -- returns only 5 rows, but will process all rows before return the 1st five.
+```
+##_S_QL*plus
 
 ###defaults
 ####for scripting
