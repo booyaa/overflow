@@ -23,6 +23,25 @@ select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
 
+##_I_nserts
+
+###multi-table
+
+This assumes you have already created mailing_list and stats table.
+
+```sql
+INSERT ALL
+   INTO mailing_list
+      VALUES(name, email)
+   
+   INTO stats
+      VALUES(id, loc)
+   
+   SELECT * 
+      FROM big_user_data;
+```
+
+```
 ##_L_imiting rows
 
 An alternative to rownum (which runs before an ORDER BY) is to use FETCH.
