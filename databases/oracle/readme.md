@@ -71,6 +71,23 @@ alarm bells:
 
 useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
+##_R_andom data
+
+```sql
+with foo as (
+select  rownum, 
+        dbms_random.value() rnd_no,
+       CAST(dbms_random.normal() as number(10,8)) rnd_norm
+from dual
+connect by rownum <= 50000
+)
+select 
+  avg(rnd_no) as mean_number,
+  stddev(rnd_no) as sd_number,
+  avg(rnd_norm) as mean_norm,
+  stddev(rnd_norm) as sd_norm
+from foo;
+```
 
 ##_S_ampling
 
