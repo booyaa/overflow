@@ -198,3 +198,14 @@ Trace files updated after you close the connection / application.
 select username, account_status from dba_users; -- to check for locked accounts 
 alter user USERNAME account unlock;
 ```
+##_V_ectors
+
+```sql
+SELECT foo, fizz
+FROM dual
+WHERE (foo, fizz) in (
+                        ('bar', 'buzz'), -- 1st value is for column foo, 2nd value is for column fizz
+                        ('dar','duzz'),
+                        ('tar','tuzz')
+                     );
+```                     
