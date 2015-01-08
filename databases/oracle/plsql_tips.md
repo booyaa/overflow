@@ -1,5 +1,13 @@
 #Dynamic SQL
 
+## _F_ormatting columns
+
+```
+COLUMN foobar_something_blah FORMAT A25 HEADING 'foobar'
+COLUMN foobar_price_usd FORMAT $99.99
+```
+
+
 ##getting row count from dynamic sql
 
 ```sql
