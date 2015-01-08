@@ -201,11 +201,19 @@ alter user USERNAME account unlock;
 ##_V_ectors
 
 ```sql
-SELECT foo, fizz
-FROM dual
-WHERE (foo, fizz) in (
-                        ('bar', 'buzz'), -- 1st value is for column foo, 2nd value is for column fizz
-                        ('dar','duzz'),
-                        ('tar','tuzz')
-                     );
+with gps_map as (
+  select -0.7945 as gps_lon, -0.4248 as gps_lat from dual 
+  union all
+  select  -0.2683,	-0.2555 from dual
+  union all
+  select 1.1266, -1.2959 from dual
+)
+select 
+  gps_lon, gps_lat
+  from gps_map
+  where (gps_lon, gps_lat) in 
+  (
+    (-0.7945, -0.4248),    
+    (1.1266, -1.2959)
+  );
 ```                     
