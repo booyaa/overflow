@@ -41,7 +41,29 @@ INSERT ALL
       FROM big_user_data;
 ```
 
+##_K_illing sessions
+
+```sql
+-- find
+select sid, serial#, inst_id, username, osuser, program 
+from gv$session 
+where username is not null;
 ```
+
+```sql
+-- r11 onwards
+alter system kill session 'SID,SERIAL#,@INST_ID';
+```
+
+```sql
+-- for the copy and pastafarians
+select 'alter system kill session ''' || sid || ', ' || serial# || ', @' || inst_id || ''';' || ' -- ' || username || ' - ' || osuser || ' - ' || program 
+
+from gv$session
+where osuser like '%saving_copy_pastafarians_from_killing_everything%' -- this needs to be a valid where clause
+/
+```
+
 ##_L_imiting rows
 
 An alternative to rownum (which runs before an ORDER BY) is to use FETCH.
@@ -211,7 +233,7 @@ TraceFileName=C:\odpnet4.trc
 
 Trace files updated after you close the connection / application.
 
-##Unlock
+##_U_nlock an account
 
 ```
 select username, account_status from dba_users; -- to check for locked accounts 
