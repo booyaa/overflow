@@ -239,7 +239,18 @@ Trace files updated after you close the connection / application.
 select username, account_status from dba_users; -- to check for locked accounts 
 alter user USERNAME account unlock;
 ```
-##_V_ectors
+
+##_V_ariables
+
+How to get the name of a script
+
+```
+SET SERVEROUTPUT ON
+REM $$plsql_unit will return a NULL if run in an anon block
+EXEC DBMS_OUTPUT.put_line(NVL($$plsql_unit, 'plsql anon block'));
+```
+
+###Vectors
 
 ```sql
 with gps_map as (
