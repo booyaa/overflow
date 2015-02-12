@@ -15,6 +15,23 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 --where bitand(wanted, 6) <> 0; -- gets you appears_in_both and beta (4+2)
 
 ```
+##_C_SV
+
+Quick and dirty CSV export SELECT csv hint.
+
+```sql
+SPOOL C:\TEMP\foobar.csv
+
+SELECT /*csv*/ *
+  FROM foo
+  LEFT
+  JOIN bar
+    ON foo.id = bar.id
+ WHERE foo.name LIKE '%HURR%';
+ 
+ SPOOL OFF
+```
+
 ##_F_unctions
 
 ###substring
