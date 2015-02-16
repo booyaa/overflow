@@ -147,6 +147,36 @@ select
 from foo;
 ```
 
+##Raw values
+
+As used by RAW datatype and various data dictionary columns
+
+```
+SELECT  table_name,
+        column_name, 
+        data_type,        
+        data_length,
+        CASE data_type
+          WHEN 'VARCHAR2' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(low_value))
+          WHEN 'NUMBER' THEN TO_CHAR(UTL_RAW.cast_to_number(low_value))
+        END AS low_val,
+        LENGTH(CASE data_type
+          WHEN 'VARCHAR2' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(low_value))
+          WHEN 'NUMBER' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(low_value))
+        END) AS low_val_len,
+        CASE data_type
+          WHEN 'VARCHAR2' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(high_value))
+          WHEN 'NUMBER' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(high_value))
+        END AS high_val,
+        LENGTH(case data_type
+          WHEN 'VARCHAR2' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(high_value))
+          WHEN 'NUMBER' THEN TO_CHAR(UTL_RAW.cast_to_varchar2(high_value))
+        END) as high_val_len
+ FROM user_tab_columns 
+ORDER 
+   BY table_name, column_name;
+```
+
 ##_S_ampling
 
 ```sql
