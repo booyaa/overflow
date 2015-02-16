@@ -31,7 +31,14 @@ SELECT /*csv*/ *
  
  SPOOL OFF
 ```
+##_D_ates
 
+```sql
+select length('2015-JAN-12') from dual;	-- 11 - lolwat?
+select length('2015-01-12') from dual;	-- 10 - ISO8601 lite?
+select length('20150112') from dual;	-- 8 - meh
+select length('12-JAN-15') from dual;	-- 9 - Oraclistas
+```
 ##_F_unctions
 
 ###substring
