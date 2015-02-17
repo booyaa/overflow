@@ -1,5 +1,7 @@
 # inserting (hurr) output from dynamic sql
 
+
+
 normally you'd expect to get away with using something like select blah into v_ariable_name, but with dynamic sql you need 
 place the INTO in the EXECUTE IMMEDIATE statement.
 
@@ -23,5 +25,6 @@ BEGIN
 END;
 /
 ```
+tags: rowcount, row, count
 
 # TODO: EXECUTE IMMEDIATE USING..
