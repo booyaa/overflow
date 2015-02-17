@@ -25,6 +25,6 @@ BEGIN
 END;
 /
 ```
-tags: rowcount, row, count
+tags: rowcount , row , count
 
 # TODO: EXECUTE IMMEDIATE USING..
