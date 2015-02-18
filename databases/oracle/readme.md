@@ -117,6 +117,25 @@ SELECT *
 ```
 
 <A name="M"/>
+##_M_arkdown nav generator
+
+Add ```<A href="A"/>``` to your titles and then use this code to generate a alphabeta nav bar like this ```[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)...```
+
+```
+SET SERVEROUTPUT ON
+DECLARE
+  ch CHAR;
+BEGIN
+FOR i IN ASCII('A')..ASCII('Z')
+LOOP
+  ch := CHR(i);
+  DBMS_OUTPUT.put('[' || ch || '](#' || ch || ')');
+END LOOP;
+  DBMS_OUTPUT.put_line('');
+END;
+/
+```
+
 <A name="N"/>
 <A name="O"/>
 <A name="P"/>
