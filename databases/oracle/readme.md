@@ -1,7 +1,9 @@
-<A name="A">/
+<A name="A"/>
 
 <A name="B"/>
-##_B_itmasks [A](#A)
+##_B_itmasks 
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
 
 ```sql
 with data as
@@ -20,6 +22,7 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 ```
 <A name="C"/>
 ##_C_SV
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 Quick and dirty CSV export SELECT csv hint.
 
@@ -48,7 +51,7 @@ select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 
 <A name="F"/>
 ##_F_unctions
-
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 ###substring
 ```sql
 select substring('foobar', -3) from dual; -- returns "bar"
@@ -100,6 +103,7 @@ where osuser like '%saving_copy_pastafarians_from_killing_everything%' -- this n
 ```
 <A name="L"/>
 ##_L_imiting rows
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 An alternative to rownum (which runs before an ORDER BY) is to use FETCH.
 
@@ -115,6 +119,7 @@ SELECT *
 <A name="O"/>
 <A name="P"/>
 ##_P_rivs
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```GRANT ON object_name TO user_or_role```
 ```REVOKE ON object_name FROM user_or_role```
@@ -125,6 +130,7 @@ Grant on role whenever possible, but for dynamic sql sprocs you need to grant ex
 
 <A name="Q"/>
 ##_Q_ueries
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ###selecting by time range
 
@@ -153,6 +159,7 @@ useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
 <A name="R"/>
 ##_R_andom data
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
 with foo as (
@@ -201,6 +208,7 @@ ORDER
 ```
 <A name="S"/>
 ##_S_ampling
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
 SELECT   foo,
@@ -258,6 +266,7 @@ DEFINE _EDITOR=vi
 
 <A name="T"/>
 ##_T_emporal queries
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ###AS OF
 
@@ -306,6 +315,7 @@ Trace files updated after you close the connection / application.
 
 <A name="U"/>
 ##_U_nlock an account
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```
 select username, account_status from dba_users; -- to check for locked accounts 
@@ -313,6 +323,7 @@ alter user USERNAME account unlock;
 ```
 <A name="V"/>
 ##_V_ariables
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 How to get the name of a script
 
