@@ -178,6 +178,19 @@ select
   stddev(rnd_norm) as sd_norm
 from foo;
 ```
+alternate method for pl/sql blocks is to use ```DBMS_STATS.convert_raw_value```, but it's more of a pita since you have to pass an variable reference.
+
+```
+SET SERVEROUTPUT ON
+DECLARE
+foo VARCHAR2(25);
+BEGIN
+  DBMS_STATS.convert_raw_value('483939373431393030313930', foo);
+  DBMS_OUTPUT.put_line('foo: ' || foo);
+END;
+/
+
+```
 
 ##Raw values
 
