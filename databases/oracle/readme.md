@@ -1,4 +1,7 @@
-##_B_itmasks
+<A name="A">/
+
+<A name="B"/>
+##_B_itmasks [A](#A)
 
 ```sql
 with data as
@@ -15,6 +18,7 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 --where bitand(wanted, 6) <> 0; -- gets you appears_in_both and beta (4+2)
 
 ```
+<A name="C"/>
 ##_C_SV
 
 Quick and dirty CSV export SELECT csv hint.
@@ -31,6 +35,7 @@ SELECT /*csv*/ *
  
  SPOOL OFF
 ```
+<A name="D"/>
 ##_D_ates
 
 ```sql
@@ -39,6 +44,9 @@ select length('2015-01-12') from dual;	-- 10 - ISO8601 lite?
 select length('20150112') from dual;	-- 8 - meh
 select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 ```
+<A name="E"/>
+
+<A name="F"/>
 ##_F_unctions
 
 ###substring
@@ -46,7 +54,8 @@ select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
-
+<A name="G"/>
+<A name="I"/>
 ##_I_nserts
 
 ###multi-table
@@ -65,6 +74,8 @@ INSERT ALL
       FROM big_user_data;
 ```
 
+<A name="J"/>
+<A name="K"/>
 ##_K_illing sessions
 
 ```sql
@@ -87,7 +98,7 @@ from gv$session
 where osuser like '%saving_copy_pastafarians_from_killing_everything%' -- this needs to be a valid where clause
 /
 ```
-
+<A name="L"/>
 ##_L_imiting rows
 
 An alternative to rownum (which runs before an ORDER BY) is to use FETCH.
@@ -99,6 +110,10 @@ SELECT *
    FETCH FIRST 50 PERCENT ROWS ONLY;
 ```
 
+<A name="M"/>
+<A name="N"/>
+<A name="O"/>
+<A name="P"/>
 ##_P_rivs
 
 ```GRANT ON object_name TO user_or_role```
@@ -108,7 +123,7 @@ SELECT *
 
 Grant on role whenever possible, but for dynamic sql sprocs you need to grant explictly on user. Otherwise you'll get an ORA-00942 Table or view not found.
 
-
+<A name="Q"/>
 ##_Q_ueries
 
 ###selecting by time range
@@ -136,6 +151,7 @@ alarm bells:
 
 useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
+<A name="R"/>
 ##_R_andom data
 
 ```sql
@@ -183,7 +199,7 @@ SELECT  table_name,
 ORDER 
    BY table_name, column_name;
 ```
-
+<A name="S"/>
 ##_S_ampling
 
 ```sql
@@ -193,7 +209,7 @@ SELECT   foo,
    ORDER BY rnd_no --gives you randomly sorted
    FETCH FIRST 5 ROWS ONLY; -- returns only 5 rows, but will process all rows before return the 1st five.
 ```
-##_S_QL*plus
+##SQL*plus
 
 ###defaults
 ####for scripting
@@ -240,6 +256,7 @@ DEFINE _EDITOR=vi
 ##resources
 * http://www.orafaq.com/wiki/SQL*Plus_FAQ
 
+<A name="T"/>
 ##_T_emporal queries
 
 ###AS OF
@@ -274,7 +291,7 @@ ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
 */
 ```
 
-##_T_racing
+##Tracing
 
 ###Registry
 
@@ -287,13 +304,14 @@ TraceFileName=C:\odpnet4.trc
 
 Trace files updated after you close the connection / application.
 
+<A name="U"/>
 ##_U_nlock an account
 
 ```
 select username, account_status from dba_users; -- to check for locked accounts 
 alter user USERNAME account unlock;
 ```
-
+<A name="V"/>
 ##_V_ariables
 
 How to get the name of a script
@@ -323,3 +341,7 @@ select
     (1.1266, -1.2959)
   );
 ```                     
+<A name="W"/>
+<A name="X"/>
+<A name="Y"/>
+<A name="Z"/>
