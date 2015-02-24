@@ -39,7 +39,14 @@ SELECT /*csv*/ *
  SPOOL OFF
 ```
 <A name="D"/>
-##_D_ates
+##_D_ata Dictionary
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+who has create database link (shows roles and users) privs
+
+```select grantee from dba_sys_privs  where PRIVILEGE ='CREATE DATABASE LINK';```
+
+##Dates
 
 ```sql
 select length('2015-JAN-12') from dual;	-- 11 - lolwat?
@@ -52,6 +59,7 @@ select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 <A name="F"/>
 ##_F_unctions
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
 ###substring
 ```sql
 select substring('foobar', -3) from dual; -- returns "bar"
