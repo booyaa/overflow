@@ -58,3 +58,34 @@ DROP PROCEDURE table_get;
 /
 
 ```
+
+##Quick and dirty PL/SQL to query a refcursor (probably a pipelined func too)
+
+```sql
+SET SERVEROUTPUT ON
+CLEAR SCREEN
+
+VAR P_NAME CHAR
+VAR P_TABLES REFCURSOR
+
+DECLARE
+  PROCEDURE table_get(p_name IN VARCHAR2, p_tables OUT SYS_REFCURSOR)
+  AS
+  BEGIN
+    OPEN p_tables 
+     FOR
+        SELECT * 
+          FROM user_tables 
+         WHERE TABLE_NAME LIKE P_NAME;
+  END;
+
+
+BEGIN  
+  :P_NAME := '%REQ%';
+  table_get(:P_NAME, :P_TABLES);
+END;
+/
+
+
+PRINT P_TABLES
+```
