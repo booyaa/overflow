@@ -1,4 +1,48 @@
 <A name="A"/>
+##_A_ll or some
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+Return all or some values
+
+Assume data_group table looks like this
+
+```
+|group_id|table_name|
+|1       |foo       |
+|2       |bar       |
+```
+
+```
+CREATE OR REPLACE PROCEDURE foo (p_group_id IN NUMBER)
+AS
+  CURSOR cur_data_group(p_group_id NUMBER)
+      IS
+  SELECT table_name
+    FROM data_group
+   WHERE group_id = NVL(p_group, group_id);
+BEGIN
+  FRO rec IN cur_data_group(p_group)
+  LOOP
+    dbms_output.put_line(table_name);
+  END LOOP;
+END;
+/
+```
+
+Example output
+
+```
+SET SERVEROUTPUT ON
+
+EXEC foo(p_group_id=>1);
+
+foo
+
+EXEC foo;
+
+foo
+bar
+```
 
 <A name="B"/>
 ##_B_itmasks 
