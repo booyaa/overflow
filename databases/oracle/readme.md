@@ -303,6 +303,18 @@ SELECT   foo,
    ORDER BY rnd_no --gives you randomly sorted
    FETCH FIRST 5 ROWS ONLY; -- returns only 5 rows, but will process all rows before return the 1st five.
 ```
+
+##How space is a table using
+
+```sql
+SELECT segment_name,
+        TO_CHAR(ROUND(SUM(bytes)/1024/1024/1024,3),'FM0.000') AS GB 
+  FROM user_segments 
+ GROUP 
+    BY segment_name
+ ORDER 
+    BY 2 DESC;
+```
 ##SQL*plus
 
 ###defaults
