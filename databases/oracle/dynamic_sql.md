@@ -37,4 +37,34 @@ END;
 ```
 tags: rowcount , row , count
 
+# Using substution variables
+
+```sql
+clear screen
+set serveroutput on
+declare
+  cursor c_tables is select table_name from user_tables;
+  v_data VARCHAR2(2000);
+  v_sql VARCHAR2(2000);
+  v_stuff VARCHAR2(50) := '&1'; -- try entering MAX(DATADATE) or COUNT(*) 
+begin
+  for rec in c_tables
+  loop
+    v_sql := 'SELECT TO_CHAR(' || v_stuff || ') FROM ' || rec.table_name;
+    
+    begin
+      execute immediate v_sql into v_data;
+      dbms_output.put_line(rec.table_name || ': ' || v_data);
+    
+    exception
+      when others then
+        dbms_output.put_line('failed to run: ' || v_sql);
+        raise;
+    end;
+    end case;
+  end loop;
+end;
+/
+```
+
 # TODO: EXECUTE IMMEDIATE USING..
