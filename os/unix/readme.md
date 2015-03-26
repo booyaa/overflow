@@ -1,6 +1,5 @@
 #Unix
 
-
 ```#!/bin/bash
 
 OLDIFS=$IFS; IFS=","
@@ -12,8 +11,8 @@ do
         Price : \t $price \n\
         Quantity : \t $quantity \n"
 done < $1
-
 ```
+<a name="A"/>
 ##awk
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
@@ -22,14 +21,21 @@ awk ' BEGIN { print "header" } { print } END { print "lines:"NR } ' /etc/passwd 
 awk ' {print NR, $0_} ' /etc/passwd # add line numbers to each line
 ifconfig eth0 | awk -F":" '/HWaddr/{print toupper($3 $4 $5 $6 $7 $8)}' # prints partial mac address fragment
 ```
-
+<a name="D"/>
 ##declare
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 shows bash function definitons
 
 ```declare -f | grep '^[a-z_]' # just the names```
+<a name="C"/>
+##colours
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
+```grep --colors=always -R -E '(some|lots|blah) shiz' *.spec | less -R```
+
+```grep -R``` emits raw codes even if the term is dumb
+```less -R``` is the reciprocal switch on the other side of the pipe
 
 <a name="F"/>
 ##find
