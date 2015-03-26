@@ -121,7 +121,15 @@ sed -n ' 1,5 s/^/     /p' foo.sh # just show me the lines that will be amended
 
 ###how to add vim prefs to your source code
 
+The terminology for this one line is [modeline](http://vim.wikia.com/wiki/Modeline_magic].
+
 bash:  ```# vim: set tabstop=2 shiftwidth=2 expandtab:```
+
+**legend**
+
+* tabstop is for tab key
+* shiftwidth is for indentation ```< or >```
+* expandtab converts tabs to spaces
 
 ###useful .vimrc
 
