@@ -114,3 +114,24 @@ sed ' /^#/ d ; /^$/ d ' /etc/adduser.conf # removes comments and blank lines
 sed ' 1,5 s/^/     /g' foo.sh # indents lines 1 to 5 with 5 spaces
 sed -n ' 1,5 s/^/     /p' foo.sh # just show me the lines that will be amended
 ```
+
+<a name="V"/>
+##vim
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+###how to add vim prefs to your source code
+
+bash:  ```# vim: set tabstop=2 shiftwidth=2 expandtab:```
+
+###useful .vimrc
+
+```
+"TODO setup github repo so i don't need to download and install most of my favourites 
+"execute pathogen#infect()
+
+syntax on
+filetype plugin indent on
+
+" Press F4 to toggle highlighting on/off, and show current value.
+:noremap <F4> :set hlsearch! hlsearch?<CR>
+```
