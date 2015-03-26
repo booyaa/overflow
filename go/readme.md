@@ -27,6 +27,16 @@
 5. net start cntlm
 6. set HTTP_PROXY=http://127.0.0.1:3128
 
+quick test
+
+```
+cd %GOPATH%
+go get github.com/robfig/cron
+cd pkg\windows_amd64\github.com\robfig
+```
+
+
+
 ##configure
 
 * [https://github.com/golang/go/wiki/GoGetTools](https://github.com/golang/go/wiki/GoGetTools)
