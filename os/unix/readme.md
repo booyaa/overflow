@@ -127,15 +127,15 @@ good old cat - where dos ends ^M$ and unix should be $.
 ```
 $ cat -ve *.txt
 --------------------------------------------------------^M$
---  DDL for Synonymn YIELD_LOG_DF^M$
+--  DDL for Synonymn BOB^M$
 --------------------------------------------------------^M$
 ^M$
-  CREATE OR REPLACE SYNONYM "OBSB"."YIELD_LOG_DF" FOR "YIELD_LOG_DF"@"LN_OBS_BATCH.WORLD";^M$
+  CREATE OR REPLACE SYNONYM "BOB"."BOB" FOR "ALICE"@"BOB";^M$
 --------------------------------------------------------^M$
---  DDL for Synonymn YIELD_LOG_DF^M$
+--  DDL for Synonymn BOB^M$
 --------------------------------------------------------^M$
 $
-  CREATE OR REPLACE SYNONYM "OBSB"."YIELD_LOG_DF" FOR "YIELD_LOG_DF"@"LN_OBS_BATCH.WORLD";$
+  CREATE OR REPLACE SYNONYM "BOB"."BOB" FOR "ALICE"@"BOB";$
 ```
 
 xxd - where dos' last characters are 0d 0a and unix is 0a. (pro-tip: man ascii)
@@ -144,37 +144,11 @@ xxd - where dos' last characters are 0d 0a and unix is 0a. (pro-tip: man ascii)
 $ for i in $(ls *.txt); do echo $i ; xxd $i; done
 dos_file.txt
 0000000: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000010: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000020: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000030: 2d2d 2d2d 2d2d 2d2d 0d0a 2d2d 2020 4444  --------..--  DD
-0000040: 4c20 666f 7220 5379 6e6f 6e79 6d6e 2059  L for Synonymn Y
-0000050: 4945 4c44 5f4c 4f47 5f44 460d 0a2d 2d2d  IELD_LOG_DF..---
-0000060: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000070: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000080: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000090: 2d2d 2d2d 2d0d 0a0d 0a20 2043 5245 4154  -----....  CREAT
-00000a0: 4520 4f52 2052 4550 4c41 4345 2053 594e  E OR REPLACE SYN
-00000b0: 4f4e 594d 2022 4f42 5342 222e 2259 4945  ONYM "OBSB"."YIE
-00000c0: 4c44 5f4c 4f47 5f44 4622 2046 4f52 2022  LD_LOG_DF" FOR "
-00000d0: 5949 454c 445f 4c4f 475f 4446 2240 224c  YIELD_LOG_DF"@"L
-00000e0: 4e5f 4f42 535f 4241 5443 482e 574f 524c  N_OBS_BATCH.WORL
+*snip*
 00000f0: 4422 3b0d 0a                             D";..
 unix_file.txt
 0000000: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000010: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000020: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000030: 2d2d 2d2d 2d2d 2d2d 0d0a 2d2d 2020 4444  --------..--  DD
-0000040: 4c20 666f 7220 5379 6e6f 6e79 6d6e 2059  L for Synonymn Y
-0000050: 4945 4c44 5f4c 4f47 5f44 460d 0a2d 2d2d  IELD_LOG_DF..---
-0000060: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000070: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000080: 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d 2d2d  ----------------
-0000090: 2d2d 2d2d 2d0d 0a0a 2020 4352 4541 5445  -----...  CREATE
-00000a0: 204f 5220 5245 504c 4143 4520 5359 4e4f   OR REPLACE SYNO
-00000b0: 4e59 4d20 224f 4253 4222 2e22 5949 454c  NYM "OBSB"."YIEL
-00000c0: 445f 4c4f 475f 4446 2220 464f 5220 2259  D_LOG_DF" FOR "Y
-00000d0: 4945 4c44 5f4c 4f47 5f44 4622 4022 4c4e  IELD_LOG_DF"@"LN
-00000e0: 5f4f 4253 5f42 4154 4348 2e57 4f52 4c44  _OBS_BATCH.WORLD
+*snip*
 00000f0: 223b 0a                                  ";.
 ```
 
