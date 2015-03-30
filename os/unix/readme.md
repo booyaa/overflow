@@ -21,6 +21,15 @@ awk ' BEGIN { print "header" } { print } END { print "lines:"NR } ' /etc/passwd 
 awk ' {print NR, $0_} ' /etc/passwd # add line numbers to each line
 ifconfig eth0 | awk -F":" '/HWaddr/{print toupper($3 $4 $5 $6 $7 $8)}' # prints partial mac address fragment
 ```
+
+<a name="C"/>
+##Command Substitution
+
+aka ```$(ls *.sql)``` or backtick (deprecated?)
+
+```bash
+foo=$(ls *.sql)
+```
 <a name="D"/>
 ##declare
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
