@@ -104,8 +104,17 @@ select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 <A name="E"/>
 
 <A name="F"/>
-##_F_unctions
+##_F_lashback
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+```sql
+select * from user_recyclebin where original_name = 'foo'; -- check recyclebin for file
+flashback table foo to before drop; -- restore foo
+flashback table foo to before drop rename to bar; -- restore foo as bar (if foo is in use and you just need it flashback for reference purposes)
+
+```
+
+##Functions
 
 ###substring
 ```sql
