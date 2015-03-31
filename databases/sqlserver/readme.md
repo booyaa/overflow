@@ -53,6 +53,17 @@ insert into foo(fizz,buzz)
   from bar
 ```
 
+#### identities
+
+```sql
+set identity_insert database.schema.table on -- allows us to insert ids
+
+insert into database.schema.table(col1,col2) -- important that you specify the columns, otherwise you'll get a cryptic identity error
+select col1,col2 from database_backup.schema.table;
+
+set identity_insert database.schema.table off -- return to normal
+```
+
 ## _M_erge
 
 ```sql
