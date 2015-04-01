@@ -1,8 +1,23 @@
 
 ## _C_onversion
 
-###from int date 20141009 to datetime
+###convert integers
 
+https://technet.microsoft.com/en-us/library/ms187928%28v=sql.105%29.aspx?f=255&MSPPError=-2147217396
+
+popular 
+
+```select convert(varchar(255), getdate(), int)```
+
+where int is 
+
+* 110 is US format (so will cause much lulz elsewhere)
+* 112 is ISO sortable yyyymmdd
+* 126 is ISO8601
+* 127 is ISO8601 timezone
+
+
+###from int date 20141009 to datetime
 
 ```select cast(cast(DateAsInt as varchar(10)) as date```
 
