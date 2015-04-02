@@ -93,6 +93,10 @@ who has create database link (shows roles and users) privs
 
 ```select grantee from dba_sys_privs  where PRIVILEGE ='CREATE DATABASE LINK';```
 
+##Database name
+
+```select ora_database_name from dual```
+
 ##Dates
 
 ```sql
