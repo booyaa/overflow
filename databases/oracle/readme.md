@@ -414,6 +414,19 @@ ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
 */
 ```
 
+##TO_CHAR
+
+useful formats
+
+```
+SELECT TO_CHAR(COUNT(*), '99G999G999') FROM foo; 
+
+-- 13,999,999 if unioning a small figure you'd it would be right aligned i.e.
+--      9,999
+```
+
+also ```RPAD``` is your friend in dynamic sql...
+
 ##Tracing
 
 ###Registry
