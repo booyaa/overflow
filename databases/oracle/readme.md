@@ -414,6 +414,12 @@ ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
 */
 ```
 
+##synonyms
+
+```sql
+select 'CREATE OR REPLACE SYNONYM "' || OWNER || '"."' || TABLE_NAME || '" FOR "' || TABLE_OWNER || '"."' || TABLE_NAME || '";' from DBA_SYNONYMS where OWNER like '%FOO%';
+```
+
 ##TO_CHAR
 
 useful formats
