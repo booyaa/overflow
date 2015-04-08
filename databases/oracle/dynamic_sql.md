@@ -66,5 +66,13 @@ begin
 end;
 /
 ```
+# oneliners
 
+## grants
+
+```sql
+select 'GRANT ' || privilege || ' ON "' || GRANTEE ||'"."' || TABLE_NAME || '" TO "' || GRANTEE || '"."' || TABLE_NAME || '"' FROM dba_tab_privs where grantor like '%FOO%';
+```
+
+## synonyms
 # TODO: EXECUTE IMMEDIATE USING..
