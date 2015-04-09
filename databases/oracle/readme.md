@@ -11,7 +11,7 @@ Assume data_group table looks like this
 |1       |foo       |
 |2       |bar       |
 ```
-
+_
 ```
 CREATE OR REPLACE PROCEDURE foo (p_group_id IN NUMBER)
 AS
@@ -145,6 +145,22 @@ INSERT ALL
    SELECT * 
       FROM big_user_data;
 ```
+
+##Invalid objects
+
+as sys or sysdba role
+
+```sql
+@?/rdbms/admin/utlrp.sql
+```
+source: http://oracle-base.com/articles/misc/recompiling-invalid-schema-objects.php#utlrp_and_utlprp
+
+useful queries:
+
+```sql
+select obj#, compile_err from utl_recomp_errors;
+```
+tags: recompile , UTL_RECOMP , invalid , dba_objects , user_objects , errors , deploy , build
 
 <A name="J"/>
 <A name="K"/>
