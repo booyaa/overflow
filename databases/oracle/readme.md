@@ -83,7 +83,19 @@ SELECT /*csv*/ *
  SPOOL OFF
 ```
 
-More formats to be found [here](http://www.thatjeffsmith.com/archive/2012/05/formatting-query-results-to-csv-in-oracle-sql-developer/).
+Complete list of formats
+
+```sql
+SELECT /*csv*/ * FROM scott.emp;
+SELECT /*xml*/ * FROM scott.emp;
+SELECT /*html*/ * FROM scott.emp;
+SELECT /*delimited*/ * FROM scott.emp;
+SELECT /*insert*/ * FROM scott.emp;
+SELECT /*loader*/ * FROM scott.emp;
+SELECT /*fixed*/ * FROM scott.emp;
+SELECT /*text*/ * FROM scott.emp;
+```
+Full details and source can be  [here](http://www.thatjeffsmith.com/archive/2012/05/formatting-query-results-to-csv-in-oracle-sql-developer/).
 
 <A name="D"/>
 ##_D_ata Dictionary
