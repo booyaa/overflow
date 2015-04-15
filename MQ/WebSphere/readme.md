@@ -21,4 +21,6 @@ Unix (should be in path
 dspmqver -i
 ```
 
+source: http://www-01.ibm.com/support/docview.wss?uid=swg21621707
 tag: mq , .net , dll
+
