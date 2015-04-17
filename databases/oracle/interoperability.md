@@ -48,6 +48,7 @@ LOL_FOO.WORLD =
     (HS = OK)
   )
 ```
+1. lsnrctl reload LOL
 1. tnsping LOL_FOO.WORLD
 1. Create db link
 ```
