@@ -57,3 +57,16 @@ USING LOL_FOO.WORLD;
 ```
 
 ## Stored procedures
+
+```DBMS_HS_PASSTHROUGH``` is a magic package, it won't pop up in code assist and is not listed in _objects. Provided you've completed the previous steps.
+
+```
+set serveroutput on
+clear screen
+declare
+  v_result NUMBER;
+begin
+  v_result := DBMS_HS_PASSTHROUGH.EXECUTE_IMMEDIATE@"LOL_FOO.WORLD"('usp_CoolCatCode ''rotfl''');
+end;
+/
+```
