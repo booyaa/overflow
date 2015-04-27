@@ -348,7 +348,7 @@ SELECT   foo,
    FETCH FIRST 5 ROWS ONLY; -- returns only 5 rows, but will process all rows before return the 1st five.
 ```
 
-##How space is a table using
+##How much space is a table using
 
 ```sql
 SELECT segment_name,
@@ -359,6 +359,20 @@ SELECT segment_name,
  ORDER 
     BY 2 DESC;
 ```
+
+##stack traces
+
+```sql
+BEGIN
+  NULL;
+EXCEPTION
+  WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-2000, 'Stack trace: ' || dbms_utility.format_error_backtrace);
+END
+```
+
+tags: stack , backtrace , errors, stack trace
+
 ##SQL*plus
 
 ###defaults
