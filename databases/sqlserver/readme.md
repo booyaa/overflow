@@ -1,4 +1,3 @@
-
 ## _C_onversion
 
 ###convert integers
@@ -21,7 +20,19 @@ where int is
 
 ```select cast(cast(DateAsInt as varchar(10)) as date```
 
-## _D_ate arithemetic
+## _D_ata import/export
+
+Caveat: Maybe a SS2008 R2 feature in Management Studio
+
+### Export 
+1. Right click on database you wish export
+2. ```Tasks``` > ```Generate Scripts...```
+3. Select objects you wish to export
+4. In ```Set Scripting Options```, click the ```Advanced``` button
+5. In ```General``` options, change ```Types of data to script``` from ```Schema Only``` to ```Data Only```
+
+
+## Date arithemetic
 
 ### diff
 
