@@ -10,7 +10,11 @@ find . -type f -exec unix2dos {} \;
 
 # Extracting files from an MSI 
 
-```msiexec /a "X:\PATH\TO\FILE.MSI" /qb TARGETDIR="Y:\PATH\TO\EXTRACT\FILES\INTO"```
+with a detailed log file 
+
+```msiexec /a "X:\PATH\TO\FILE.MSI" /qb /L*v "Q:\PATH\TO\FILE.LOG" TARGETDIR="Y:\PATH\TO\EXTRACT\FILES\INTO"```
+
+
 
 Caveat: you won't know what the script does post file extraction.
 
