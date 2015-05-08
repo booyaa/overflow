@@ -101,8 +101,23 @@ view symbolic links and their targets
 
 cut work better than ```awk {print $10}``` in osx
 
-##grep
+<a name="G" />
+##_g_it
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+###branching
+* ```git branch``` - lists branches
+* ```git checkout -b branch_name``` - creates a new branch and switches to it
+* ```git checkout new_feature_branch``` - switches to an existing branch called new_feature_branch
+* ```git commit -am "blah"``` - does an add and commit
+* ```git merge new_feature_branch``` - merges your changes from new_feature_branch into your current branch
+
+###getting or sending changes
+* ```git pull``` - does a fetch and merge
+* ```git push -u origin master``` - usual default
+
+
+##grep
 
 ```
 grep -c name /proc/cpuinfo # count the number of times name appears in cpuinfo i.e. count processors
