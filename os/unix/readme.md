@@ -1,4 +1,4 @@
-#Unix
+# Unix
 
 ```#!/bin/bash
 
@@ -23,7 +23,7 @@ ifconfig eth0 | awk -F":" '/HWaddr/{print toupper($3 $4 $5 $6 $7 $8)}' # prints 
 ```
 
 <a name="C"/>
-##Command Substitution
+## Command Substitution
 
 aka ```$(ls *.sql)``` or backtick (deprecated?)
 
@@ -31,14 +31,14 @@ aka ```$(ls *.sql)``` or backtick (deprecated?)
 foo=$(ls *.sql)
 ```
 <a name="D"/>
-##declare
+## declare
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 shows bash function definitons
 
 ```declare -f | grep '^[a-z_]' # just the names```
 <a name="C"/>
-##colours
+## colours
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```grep --colors=always -R -E '(some|lots|blah) shiz' *.spec | less -R```
@@ -47,12 +47,12 @@ shows bash function definitons
 ```less -R``` is the reciprocal switch on the other side of the pipe
 
 <a name="F"/>
-##find
+## find
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 Adapted from [this](http://javarevisited.blogspot.co.uk/2011/03/10-find-command-in-unix-examples-basic.html) article.
 
-###-exec
+### -exec
 
 Search for a term in a file
 
@@ -63,19 +63,19 @@ alternative method is to use xargs
 ```find . -name ".htaccess" -print | xargs grep -i REMOTE```
 
 
-###-iname
+### -iname
 
 Case insensitive search
 
 ```find . -iname "buzz" # will find BUZZ and buzz```
 
-###-maxdepth
+### -maxdepth
 
 Limit search to current dir
 
 ```find . -maxdepth 1 -name ".htaccess"```
 
-###-mtime
+### -mtime
 
 
 ```
@@ -87,13 +87,13 @@ find . -name ".cs" -mtime +1 # find c sharp files older
 
 Caveat: 1 day is 24 hours in terms of a|c|mtime
 
-###-perm
+### -perm
 
 find files with a specific file perm with u=rw,og=r 
 
 ```find . -perm 644```
 
-###-type
+### -type
 
 view symbolic links and their targets
 
@@ -102,29 +102,29 @@ view symbolic links and their targets
 cut work better than ```awk {print $10}``` in osx
 
 <a name="G" />
-##_g_it
+## git
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
-###branching
+### branching
 * ```git branch``` - lists branches
 * ```git checkout -b branch_name``` - creates a new branch and switches to it
 * ```git checkout new_feature_branch``` - switches to an existing branch called new_feature_branch
 * ```git commit -am "blah"``` - does an add and commit
 * ```git merge new_feature_branch``` - merges your changes from new_feature_branch into your current branch
 
-###getting or sending changes
+### getting or sending changes
 * ```git pull``` - does a fetch and merge
 * ```git push -u origin master``` - usual default
 
 
-##grep
+## grep
 
 ```
 grep -c name /proc/cpuinfo # count the number of times name appears in cpuinfo i.e. count processors
 ```
 <a name="L" />
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
-##line endings
+## line endings
 
 different ways to identify if a file is dos or unixsy
 
@@ -167,21 +167,21 @@ unix_file.txt
 00000f0: 223b 0a                                  ";.
 ```
 
-##nl
+## nl
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 add line number to a file
 
 ```nl /etc/passwd```
 
-##screen
+## screen
 
 * C-a-[ - trigger copy (which can be used for scrolling back)
   * C-f/b - page down/up
 
 
 
-##sed-isms
+## sed-isms
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```
@@ -192,10 +192,10 @@ sed -n ' 1,5 s/^/     /p' foo.sh # just show me the lines that will be amended
 ```
 
 <a name="V"/>
-##vim
+## vim
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
-###how to add vim prefs to your source code
+### how to add vim prefs to your source code
 
 The terminology for this one line is [modeline](http://vim.wikia.com/wiki/Modeline_magic].
 
@@ -207,7 +207,7 @@ bash:  ```# vim: set tabstop=2 shiftwidth=2 expandtab:```
 * shiftwidth is for indentation ```< or >```
 * expandtab converts tabs to spaces
 
-###useful .vimrc
+### useful .vimrc
 
 ```
 "TODO setup github repo so i don't need to download and install most of my favourites 
