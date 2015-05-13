@@ -109,6 +109,17 @@ who has create database link (shows roles and users) privs
 
 ```select ora_database_name from dual```
 
+##Datapump
+
+###IMPORT
+
+```sql
+GRANT CREATE TABLE TO user; -- not role unless you want lulz
+GRANT ROLE IMP_FULL_DATABASE to user;
+```
+
+```GRANT CREATE TABLE``` is an important gotcha, otherwise you'll spend ages scratching your head wondering why ```impdp``` works, but api doesn't
+
 ##Dates
 
 ```sql
