@@ -32,4 +32,11 @@ WHERE UPPER(c.NamePart) = 'AD_USER_NAME'
 ORDER BY 1
 ```
 
+source: http://stackoverflow.com/a/10194041/105282
+refs: 
+* http://vsts-fu.blogspot.co.uk/ 
+* http://www.woodwardweb.com/vsts/getting_started.html
+* https://visualstudiomagazine.com/articles/2009/03/09/inside-the-tfs-databases-an-occasional-series.aspx
+* http://stackoverflow.com/questions/5977244/how-to-get-git-like-statistics-from-tfs
+
 tags: year , datepart , dateonly
