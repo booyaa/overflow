@@ -466,6 +466,49 @@ ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
    9.5E+12 02-DEC-14 13.08.14.000000000
 */
 ```
+##Trace
+
+If oracle support want a trace log:
+
+```sqlplus
+SET ECHO ON
+CONNECT / AS SYSDBA
+GRANT ALTER SESSION TO testuser;
+
+CONNECT testuser/testuser
+
+alter session set tracefile_identifier='29400'; 
+alter session set timed_statistics = true;
+alter session set statistics_level=all;
+alter session set max_dump_file_size = unlimited;
+
+-- anything not listed in diagnostics event list (see resources below) is probably an oracle error number
+alter session set events '29400 trace name context forever, level 3'; 
+alter session set events '29913 trace name errorstack level 3';  -- 
+
+SELECT * FROM that_thing_that_causes_the_problem;
+
+--baseline
+SELECT * FROM dual;
+
+EXIT;
+```
+
+To find the trace and alert log files:
+
+```sqlplus
+show parameter core_dump_dest
+```
+
+Drop down a level to find trace and alert directories.
+
+resources:
+* [http://blog.tanelpoder.com/2013/10/07/why-doesnt-alter-system-set-events-set-the-events-or-tracing-immediately/](http://blog.tanelpoder.com/2013/10/07/why-doesnt-alter-system-set-events-set-the-events-or-tracing-immediately/)
+* [http://www.dba-oracle.com/int_alter_session_set_event.htm](http://www.dba-oracle.com/int_alter_session_set_event.htm)
+* [http://www.adp-gmbh.ch/ora/tuning/diagnostic_events/index.html](http://www.adp-gmbh.ch/ora/tuning/diagnostic_events/index.html)
+* [http://www.adp-gmbh.ch/ora/tuning/diagnostic_events/list.html](http://www.adp-gmbh.ch/ora/tuning/diagnostic_events/list.html)
+* [https://jonathanlewis.wordpress.com/2011/02/15/ora-29913/](https://jonathanlewis.wordpress.com/2011/02/15/ora-29913/)
+ 
 
 ##synonyms
 
