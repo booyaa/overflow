@@ -69,6 +69,7 @@ VAR P_NAME CHAR
 VAR P_TABLES REFCURSOR
 
 DECLARE
+  -- this sproc is purely for example purposes, you could be referring to one in the database and/or a package
   PROCEDURE table_get(p_name IN VARCHAR2, p_tables OUT SYS_REFCURSOR)
   AS
   BEGIN
