@@ -79,3 +79,11 @@ begin
 end;
 /
 ```
+
+output:
+```
+index: 1 from: ohai     to: ohai     tablespaces: ohai_data
+index: 2 from: somuch   to: somuch   tablespaces: somuch_data
+index: 3 from: wow      to: wow      tablespaces: wow_data
+index: 4 from: doge     to: doge     tablespaces: doge_data
+```
