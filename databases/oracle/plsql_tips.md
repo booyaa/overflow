@@ -75,15 +75,15 @@ declare
   argh FOO.schema_types := FOO.schema_types('meh','veh','teh', 'rah');  
   meh FOO.tablespace_types := FOO.tablespace_types('ohai_data', 'somuch_data', 'wow_data', 'doge_data');
 begin
-  foo.bar(p_schema_from => blah, p_schema_to => blah, p_tablespaces => meh);
+  foo.bar(p_schema_from => blah, p_schema_to => argh, p_tablespaces => meh);
 end;
 /
 ```
 
 output:
 ```
-index: 1 from: ohai     to: ohai     tablespaces: ohai_data
-index: 2 from: somuch   to: somuch   tablespaces: somuch_data
-index: 3 from: wow      to: wow      tablespaces: wow_data
-index: 4 from: doge     to: doge     tablespaces: doge_data
+index: 1 from: ohai     to: meh      tablespaces: ohai_data
+index: 2 from: somuch   to: veh      tablespaces: somuch_data
+index: 3 from: wow      to: teh      tablespaces: wow_data
+index: 4 from: doge     to: rah      tablespaces: doge_data
 ```
