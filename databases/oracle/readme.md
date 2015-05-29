@@ -120,6 +120,15 @@ GRANT ROLE IMP_FULL_DATABASE to user;
 
 ```GRANT CREATE TABLE``` is an important gotcha, otherwise you'll spend ages scratching your head wondering why ```impdp``` works, but api doesn't
 
+###Troubleshooting
+
+Use the command line tool to generate table schemas in a dump file if dbms_datapump api fails to import
+
+```
+impdp directory=expdir dumpfile=myexp.dmp sqlfile=ddl.sql
+```
+
+
 ##Dates
 
 ```sql
