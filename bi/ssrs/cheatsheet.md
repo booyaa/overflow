@@ -1,4 +1,4 @@
-#TOC
+# TOC
 
 * [ABCDE](#AtoE)
 * [FGHIJ](#FtoJ)
@@ -9,12 +9,12 @@
 ----
 
 <a name="AtoE">
-#A B C D E
+# A B C D E
 </a>
 
-##Error messages
+## Error messages
 
-###Data retrieval failed for subreport ... located at .... Please check the log files for more information
+### Data retrieval failed for subreport ... located at .... Please check the log files for more information
 
 ####Cause #1 - not using a shared data source
 
@@ -79,6 +79,20 @@ replace the previous query with this expression
 ```
 
 You'll no longer be able to map or refresh fields until you revert back to the Design stage. I've tried specifying a valid value in the XML parameter, but SSRS 2008 gleefully ignores it.
+
+## Quick stage
+
+### Columns spanning two pages wide? 
+
+Check Report properties paper size is A4 not Letter. Also trim the margins to 0.25in. In some cases it may be better to change orientation to Landscape.
+
+### Date format (abbreviate)
+
+```=Format(Fields!DATE_FIELD_NAME.Value, "yyyy-MM-dd")```
+
+### Version control
+
+Set report property Description as your version string (would be nice if this could be linked to major.minor.build number like SSIS).
 
 <a name="UtoZ">
 #U V W X Y Z
