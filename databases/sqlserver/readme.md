@@ -115,6 +115,21 @@ todo: how can we use the OUTPUT clause to pump data into an audit trail w/o usin
 
 ```select * FROM OPENQUERY(ORCL_LINKSVR, 'SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM ALL_OBJECTS WHERE OBJECT_NAME=''FOO''')```
 
+## _S_SRS quick tips
+
+###Columns spanning two pages wide? 
+
+Check Report properties paper size is A4 not Letter. Also trim the margins to 0.25in. In some cases it may be better to change orientation to Landscape.
+
+###Date format (abbreviate)
+
+```=Format(Fields!DATE_FIELD_NAME.Value, "yyyy-MM-dd")```
+
+###Version control
+
+Set report property Description as your version string (would be nice if this could be linked to major.minor.build number like SSIS).
+
+
 ## _T_ransactions
 
 ```
