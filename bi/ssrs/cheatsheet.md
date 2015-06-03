@@ -90,6 +90,13 @@ Check Report properties paper size is A4 not Letter. Also trim the margins to 0.
 
 ```=Format(Fields!DATE_FIELD_NAME.Value, "yyyy-MM-dd")```
 
+Resource:
+[https://msdn.microsoft.com/en-us/library/az4se3k1%28v=vs.110%29.aspx](https://msdn.microsoft.com/en-us/library/az4se3k1%28v=vs.110%29.aspx)
+
+### Layout
+
+Resource:
+[http://www.mssqltips.com/sqlservertip/3023/sql-server-reporting-services-tips-and-tricks-to-improve-the-end-user-experience/](http://www.mssqltips.com/sqlservertip/3023/sql-server-reporting-services-tips-and-tricks-to-improve-the-end-user-experience/)
 ### Version control
 
 Set report property Description as your version string (would be nice if this could be linked to major.minor.build number like SSIS).
