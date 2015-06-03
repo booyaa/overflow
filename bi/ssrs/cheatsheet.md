@@ -80,7 +80,7 @@ replace the previous query with this expression
 
 You'll no longer be able to map or refresh fields until you revert back to the Design stage. I've tried specifying a valid value in the XML parameter, but SSRS 2008 gleefully ignores it.
 
-## Quick stage
+## Quick tips
 
 ### Columns spanning two pages wide? 
 
