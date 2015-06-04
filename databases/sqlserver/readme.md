@@ -97,6 +97,7 @@ indexof/instring is called charindex and usage is different from most indexing f
 select charindex('needle','needle in haystack')
 ```
 
+tags: strings , search , indexof , instr
 
 ## _M_erge
 
@@ -137,6 +138,22 @@ GO
 
 ROLLBACK TRAN foo -- and breath again
 ```
+
+using try and catch
+
+```
+BEGIN TRY
+	BEGIN TRANSACTION
+	--do something potentially harmful to db...
+	COMMIT
+END TRY
+BEGIN CATCH
+	IF @@TRANCOUNT > 0
+		ROLLBACK
+END CATCH
+```
+tag: transaction , rollback , tran
+
 ## Extract _U_sername from system_user
 
 ```
