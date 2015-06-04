@@ -89,6 +89,14 @@ select col1,col2 from database_backup.schema.table;
 
 set identity_insert database.schema.table off -- return to normal
 ```
+## _F_unctions
+
+indexof/instring is called charindex and usage is different from most indexing functions:
+
+```
+select charindex('needle','needle in haystack')
+```
+
 
 ## _M_erge
 
@@ -129,3 +137,17 @@ GO
 
 ROLLBACK TRAN foo -- and breath again
 ```
+## Extract _U_sername from system_user
+
+```
+select substring(SYSTEM_USER, charindex('\', system_user)+1, len(system_user))
+
+/* 
+system_user is DOMAIN\USER_NAME
+
+expected output
+
+USER_NAME
+*/
+```
+
