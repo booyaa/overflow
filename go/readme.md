@@ -68,3 +68,7 @@ fmt.Printf("%s", delta)
 
 //output: 24h0m0s
 ```
+
+http://play.golang.org/p/uMlJ96dR4b
+
+related: https://github.com/dustin/go-humanize
