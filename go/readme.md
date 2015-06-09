@@ -37,7 +37,34 @@ cd pkg\windows_amd64\github.com\robfig
 
 
 
-##configure
+###configure
 
 * [https://github.com/golang/go/wiki/GoGetTools](https://github.com/golang/go/wiki/GoGetTools)
 * [https://github.com/golang/go/wiki/GoGetProxyConfig](https://github.com/golang/go/wiki/GoGetProxyConfig)
+ 
+
+## formatting strings
+
+```go
+  fmt.Printf("Hello, %8s\n", "pad")
+	fmt.Printf("Hello, %-8s\n", "pad")
+	fmt.Printf("Hello, %0.8d\n", 123)
+	
+	//output:
+	//Hello,      pad
+  //Hello, pad     
+  //Hello, 00000123
+```
+
+## deltas
+
+```go
+format := "2006-01-02 15:04 MST"
+start, _ := time.Parse(format, "2014-05-03 20:57 UTC")
+finish, _ := time.Parse(format, "2014-05-04 20:57 UTC")
+delta := finish.sub(start)
+
+fmt.Printf("%s", delta)
+
+//output: 24h0m0s
+```
