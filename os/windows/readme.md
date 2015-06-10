@@ -37,7 +37,7 @@ When you have to ensure dir doesn't fail i.e. oracle external table preprocessor
 
 ```batch
 for /f "tokens=*" %%A in ('dir *.zip /b 2^>^&1 ^| FINDSTR /V "File Not Found"') do (
-  UNZIP -o %DBDUMP_PATH%\%%A -d D:\APPS\UTIL\ACBSIMP 
+  UNZIP -o %DBDUMP_PATH%\%%A -d D:\APPS\UTIL\FOO
 )
 ```
 
