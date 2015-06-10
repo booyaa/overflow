@@ -35,7 +35,7 @@ in address bar overwrite value with
 
 When you have to ensure dir doesn't fail i.e. oracle external table preprocessor script.  force all output (standard out and error) to standard out and then filter out ```File Not Found```. If no files are found the loop will fall through silently.
 
-```dos
+```batch
 for /f "tokens=*" %%A in ('dir *.zip /b 2^>^&1 ^| FINDSTR /V "File Not Found"') do (
   UNZIP -o %DBDUMP_PATH%\%%A -d D:\APPS\UTIL\ACBSIMP 
 )
