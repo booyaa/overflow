@@ -44,3 +44,7 @@ for /f "tokens=*" %%A in ('dir *.zip /b 2^>^&1 ^| FINDSTR /V "File Not Found"') 
 - bonus tip: you have to redirect standard error to standard out to be able to filter/pipe to another command.
 - bonus tip: note the escaped `>, &, |` symbols in the loop expression.
 - bonus tip: silence is golden, if you need to kill all output from standard out and error: ```>NUL 2>&1```
+
+see also: http://shaunedonohue.blogspot.co.uk/2007/09/every-time-i-need-to-redirect-dos.html
+
+tags: for , dos , loop , stderr , stdout , redirect
