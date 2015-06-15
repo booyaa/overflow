@@ -219,3 +219,22 @@ filetype plugin indent on
 " Press F4 to toggle highlighting on/off, and show current value.
 :noremap <F4> :set hlsearch! hlsearch?<CR>
 ```
+
+<a name="X"/>
+##xargs
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+
+for stuff that prints across...
+
+```
+ls *.sql | xargs ls -l
+```
+
+for stuff that needs a placeholder (or grepping accesslogs for ip addresses)
+
+```
+ls *.sql | xargs -I {} echo "ohai there: {}"
+```
+
+reference: https://sidvind.com/wiki/Xargs_by_example
