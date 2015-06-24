@@ -40,6 +40,12 @@ Caveat: Maybe a SS2008 R2 feature in Management Studio
 
 where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library/ms189794.aspx
 
+### date only part of getdate
+
+equivalent of ```TRUNC(SYSDATE)```
+
+```(cast(GETDATE()-6 as date))```
+
 ## _I_f else
 
 ```
