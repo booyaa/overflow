@@ -33,6 +33,7 @@ in address bar overwrite value with
 
 ## for loopisms
 
+### failing silently (caution)
 When you have to ensure dir doesn't fail i.e. oracle external table preprocessor script.  force all output (standard out and error) to standard out and then filter out ```File Not Found```. If no files are found the loop will fall through silently.
 
 ```batch
@@ -48,3 +49,15 @@ for /f "tokens=*" %%A in ('dir *.zip /b 2^>^&1 ^| FINDSTR /V "File Not Found"') 
 see also: http://shaunedonohue.blogspot.co.uk/2007/09/every-time-i-need-to-redirect-dos.html
 
 tags: for , dos , loop , stderr , stdout , redirect
+
+### testes, testes, 1, 2, 3?
+
+```batch
+for %i in (1,2,3) do @echo %i
+```
+
+```
+1
+2
+3
+```
