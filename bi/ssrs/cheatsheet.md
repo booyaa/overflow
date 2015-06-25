@@ -101,6 +101,10 @@ Resource:
 
 Set report property Description as your version string (would be nice if this could be linked to major.minor.build number like SSIS).
 
-<a name="UtoZ">
+<a name="UtoZ"/>
 #U V W X Y Z
-</a>
+
+##URLs
+
+- http://server/Reports - UI
+- http://servers/ReportServer - API view
