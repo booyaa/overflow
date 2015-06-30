@@ -44,7 +44,7 @@ where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library
 
 equivalent of ```TRUNC(SYSDATE)```
 
-```(cast(GETDATE()-6 as date))```
+```(cast(GETDATE()-6 as date)) -- WRONG! does -6 days``` 
 
 ## _I_f else
 
