@@ -1,3 +1,48 @@
+# take me to your leader
+
+`<leader>` by default is backslash, you can remap it , using `let mapleader=","`
+
+# symbols
+
+toggle between showing and hiding symbols
+
+```vimrc
+nmap <leader>l :set list!<CR>
+```
+
+define symbols (textmate's defaults)
+
+
+```
+set listechars=tab: \ ,eol:¬
+:help listchars
+```
+
+
+how to enter special chars, must be in insert mode
+```
+ctrl-v u00ac = ¬
+ctrl-v u25b8 = ▸
+ctrl-v ctrl-i = 	
+```
+
+# tabs and spaces
+
+ts tabstop
+sts softtabstop = allows backspace to delete tabs and indentations, default is just to remove space
+sw shiftwidth = how many spaces to indent using <>
+(no)expandtab = converts tabs into spaces
+
+defaults
+
+```vimrc
+set ts=8 sw=8 noexpandtab " vim defaults, tabstop is 8, softtabstop = 0, shiftwidth = 8, noexpandtab
+```
+
+keep tabstop, softtabstop and shiftwidth the same to be consistent.
+
+useful script can be found on [vimcast #2](http://vimcasts.org/episodes/tabs-and-spaces/)
+
 # windows
 
 ```
