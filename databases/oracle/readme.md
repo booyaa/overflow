@@ -556,7 +556,7 @@ Trace files updated after you close the connection / application.
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```
-select username, account_status from dba_users; -- to check for locked accounts 
+select username, account_status from dba_users where account_status <> 'OPEN' order by username; -- to check for locked accounts 
 alter user USERNAME account unlock;
 ```
 
