@@ -65,15 +65,13 @@ for %i in (1,2,3) do @echo %i
 
 Switching drives (fucking hate windows...)
 
-obsoleted by CD /D %INSTALLPATH%
+drive letter sniffing is obsoleted by `CD /D %INSTALLPATH%`. take aways `IF /I` compare strings without case matching
 
 ```batch
 SET INSTALLPATH=C:\FOO
 SET CWD=%CD%
-IF "%INSTALLPATH:~-0,2%" == "C:" GOTO CDRIVE
-IF "%INSTALLPATH:~-0,2%" == "c:" GOTO CDRIVE
+IF /I "%INSTALLPATH:~-0,2%" == "C:" GOTO CDRIVE
 IF "%INSTALLPATH:~-0,2%" == "D:" GOTO DDRIVE
-IF "%INSTALLPATH:~-0,2%" == "d:" GOTO DDRIVE
 GOTO ERRLOLWATDRIVE
 
 :CDRIVE
