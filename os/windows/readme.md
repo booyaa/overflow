@@ -30,9 +30,9 @@ in address bar overwrite value with
 
 ```cmd .```
 
-## for loopisms
+# for loopisms
 
-### failing silently (caution)
+## failing silently (caution)
 When you have to ensure dir doesn't fail i.e. oracle external table preprocessor script.  force all output (standard out and error) to standard out and then filter out ```File Not Found```. If no files are found the loop will fall through silently.
 
 ```batch
@@ -49,7 +49,7 @@ see also: http://shaunedonohue.blogspot.co.uk/2007/09/every-time-i-need-to-redir
 
 tags: for , dos , loop , stderr , stdout , redirect
 
-### testes, testes, 1, 2, 3?
+## testes, testes, 1, 2, 3?
 
 ```batch
 for %i in (1,2,3) do @echo %i
@@ -60,6 +60,10 @@ for %i in (1,2,3) do @echo %i
 2
 3
 ```
+
+# log all things (including errors)
+
+`1>>%LOGFILE% 2>&1`
 
 # variables
 
