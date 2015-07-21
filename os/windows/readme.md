@@ -65,6 +65,8 @@ for %i in (1,2,3) do @echo %i
 
 Switching drives (fucking hate windows...)
 
+obsoleted by CD /D %INSTALLPATH%
+
 ```batch
 SET INSTALLPATH=C:\FOO
 SET CWD=%CD%
