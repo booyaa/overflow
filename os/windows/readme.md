@@ -14,11 +14,10 @@ with a detailed log file
 
 ```msiexec /a "X:\PATH\TO\FILE.MSI" /qb /L*v "Q:\PATH\TO\FILE.LOG" TARGETDIR="Y:\PATH\TO\EXTRACT\FILES\INTO"```
 
-
-
 Caveat: you won't know what the script does post file extraction.
 
 tags: msi , msiexec
+
 # _s_hell to file explorer and back again
 
 ## dos to file explorer (retains path)
@@ -61,3 +60,33 @@ for %i in (1,2,3) do @echo %i
 2
 3
 ```
+
+# variables
+
+Switching drives (fucking hate windows...)
+
+```batch
+SET INSTALLPATH=C:\FOO
+SET CWD=%CD%
+IF "%INSTALLPATH:~-0,2%" == "C:" GOTO CDRIVE
+IF "%INSTALLPATH:~-0,2%" == "c:" GOTO CDRIVE
+IF "%INSTALLPATH:~-0,2%" == "D:" GOTO DDRIVE
+IF "%INSTALLPATH:~-0,2%" == "d:" GOTO DDRIVE
+GOTO ERRLOLWATDRIVE
+
+:CDRIVE
+C:
+:DDRIVE
+D:
+CALL install.cmd
+GOTO END
+
+:ERRLOLWATDRIVE
+ECHO Error expected C: or D: got %INSTALLPATH:~-0,2%
+
+:END
+CD %CWD%
+::FIXME only switches back to old dir path, you still need to do the fucking drive switch...
+```
+
+
