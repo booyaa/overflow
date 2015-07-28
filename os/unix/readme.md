@@ -31,8 +31,22 @@ aka ```$(ls *.sql)``` or backtick (deprecated?)
 foo=$(ls *.sql)
 ```
 <a name="D"/>
-## declare
+## date arithmetic
+
+```
+date +"%Y-%m-%d" - d '1971-12-31'+**nnnnn**days
+```
+where **nnnnn** is your midas day number
+
+tags : midas , daynum, date
+
+
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+
+
+
+## declare
 
 shows bash function definitons
 
