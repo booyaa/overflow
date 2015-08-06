@@ -1,3 +1,69 @@
+# docker / wordpress / nginx
+
+## setup first site
+
+## db
+
+    docker create --name mysql-data -v /var/lib/mysql mariadb
+    docker run --name mysql --volumes-from mysql-data -e MYSQL_ROOT_PASSWORD=wordpress -d mariadb
+
+## nginx.conf
+
+```nginx
+user  nginx;
+worker_processes  1;
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+events {
+    worker_connections  1024;
+}
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+    access_log  /var/log/nginx/access.log  main;
+    sendfile        on;
+    keepalive_timeout  65;
+    server {
+        listen 80;
+        root /var/www/html;
+        index index.html index.php;
+        location ~ \.php$ {
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+            fastcgi_pass   wordpress:9000;
+            try_files $uri =404;
+        }
+    }
+}
+```
+
+# setup first site
+
+    docker run --name wpfoo --link mysql:mysql -p 9000:9000 -d wordpress:fpm
+
+# nginx
+
+    docker run --rm -p 80:80 --volumes-from=wpfoo -v $PWD/nginx-multi.conf:/etc/nginx/nginx.conf nginx
+
+# tear down
+
+    docker run --rm -it --link mysql:mysql mariadb /bin/bash # sh -c "mysql -h mysql -p"
+
+```sql
+drop database wordpress;
+```
+# multiple wordpress
+
+    mkdir {conf,wpfoo,wpbar}
+    docker run --name wpfoo --link mysql:mysql -p 9001:9000 -d -v $PWD/wpfoo:/var/www/html wordpress:fpm
+    docker run --name wpfoo --link mysql:mysql -p 9001:9000 -d -v $PWD/wpfoo:/var/www/html wordpress:fpm
+    docker run --rm -p 80:80 -v $PWD/wpfoo:/var/www/foo -v $PWD/wpbar:/var/www/bar -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf nginx
+
+docker run --name wpbooyaa --link mysql:mysql -p 9001:9000 -d -e WORDPRESS_DB_NAME=wpbooyaa wordpress:fpm
+
 # go 
 
 ## compiling
