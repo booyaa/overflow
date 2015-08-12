@@ -8,6 +8,12 @@ install git and include git bash. you get most of the core unix tools: grep, cut
 find . -type f -exec unix2dos {} \;
 ```
 
+# ERRORLEVEL
+
+```IF %ERRORLEVEL% NEQ 0 ECHO ARROOOGA ARROOOOGA!```
+
+tags: ERROR , ERRORLEVEL , NEQ
+
 # Extracting files from an MSI 
 
 with a detailed log file 
