@@ -36,3 +36,29 @@ using(var da = new SqlDataAdapter(cmd))
 
 source: http://stackoverflow.com/a/13402124/105282
 
+## using foreach variable enumerator
+
+example give iterates through a string variable (User::StdOut) used to store standard out from an execute process task:
+
+
+```
+sample data
+hello\r\n
+world\r\n
+```
+
+explode lines in a script task and store in an object variable (User::StdOutLines)
+
+```
+System.Collections.ArrayList arr = new System.Collections.ArrayList();
+string[] lines = vars["User::StdOut"].Value.ToString().Split({'\r','\n'}, StringSplitOptions.RemoveEmptyEntries);
+foreach (line in lines)
+{
+  arr.Add(line);
+}
+vars["User::StdOutLines"] = arr;
+```
+
+then in the foreach enumerator set your variable as User::StdOutLines and your variable mapping as an object variable (not sure if this is required vs string will test later on). 
+
+tags : variable , foreach , enumerator
