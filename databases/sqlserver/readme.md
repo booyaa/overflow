@@ -2,7 +2,7 @@
 
 ###convert integers
 
-https://technet.microsoft.com/en-us/library/ms187928%28v=sql.105%29.aspx?f=255&MSPPError=-2147217396
+[https://technet.microsoft.com/en-us/library/ms187928](https://technet.microsoft.com/en-us/library/ms187928)
 
 popular 
 
@@ -12,6 +12,7 @@ where int is
 
 * 110 is US format (so will cause much lulz elsewhere)
 * 112 is ISO sortable yyyymmdd
+* 113 is Europe default + milliseconds (dd mon yyyy hh:mi:ss:mmm(24h)) - useful if using dg4 as something truncs datetime millisecond values.
 * 126 is ISO8601
 * 127 is ISO8601 timezone
 
