@@ -48,5 +48,7 @@ useful in SQL scripts
 
 To be explict, use bind vars to interact with PL/SQL blocks and user variables are substituion variables that could be used anywhere. The only downside to user variables is that you can't DEFINE a variable with another user variable.
 
+Further reading:
 
-
+- [Toadworld using bind variables](http://www.toadworld.com/platforms/oracle/w/wiki/1358.using-bind-variables)
+- [bind variables performant when using with dynamic (useful instrumention query)](http://www.dba-oracle.com/plsql/t_plsql_efficient.htm)
