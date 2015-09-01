@@ -251,7 +251,42 @@ END LOOP;
 END;
 /
 ```
+##_M_aterialize Views
 
+Creates a snapshot of a view. Useful where you don't need historic data (use bulk load pattern if you need this).
+
+Create the materialize view.
+
+```
+CREATE MATERIALIZE VIEW foo_mv
+TABLESPACE "foo_data"
+BUILD DEFERRED
+REFRESH COMPLETE
+ON DEMAND
+AS
+SELECT * FROM foo_v
+```
+
+Create the refresh group.
+
+```
+BEGIN
+  DBMS_REFRESH.destroy (name => 'RGRP_FOO_MV');
+  DBMS_REFRESH.make (name => 'RGRP_FOO_MV', next_date => null, interval => null);
+  -- we've set next_date and interval to null because we don't want the Oracle scheduler to manage refresh
+END;
+/
+```
+
+To refresh the materialize view (you could stick this in a stored proc and execute in your alternative task scheduling system).
+
+```
+EXEC DBMS_REFRESH.refresh('RGRP_FOO_MV');
+```
+
+Useful queries:
+
+- ```SELECT * FROM user_refresh_children; -- to see existing refresh groups```
 <A name="N"/>
 <A name="O"/>
 <A name="P"/>
