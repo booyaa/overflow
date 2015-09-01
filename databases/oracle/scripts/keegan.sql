@@ -1,4 +1,5 @@
 --View perms (geddit)
+--tags (for github search): perms , privs , keegan , crap_jokes
 CLEAR SCREEN
 SET WRAP OFF
 SET LINESIZE 200
