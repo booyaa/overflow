@@ -286,7 +286,10 @@ EXEC DBMS_REFRESH.refresh('RGRP_FOO_MV');
 
 Useful queries:
 
-- ```SELECT * FROM user_refresh_children; -- to see existing refresh groups```
+```
+SELECT * FROM user_refresh_children; -- to see existing refresh groups
+SELECT * FROM user_mviews; -- to view freshness of materialized views
+```
 <A name="N"/>
 <A name="O"/>
 <A name="P"/>
