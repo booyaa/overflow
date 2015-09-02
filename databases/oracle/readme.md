@@ -138,6 +138,16 @@ select length('20150112') from dual;	-- 8 - meh
 select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 ```
 <A name="E"/>
+##_E_scaping
+[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+```sql
+-- escape _
+SELECT * FROM FOO WHERE BAR LIKE 'A\_B' ESCAPE '\';
+
+-- quotes
+SELECT q'|who's house?|' FROM DUAL;
+```
 
 <A name="F"/>
 ##_F_lashback
