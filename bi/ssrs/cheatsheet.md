@@ -30,6 +30,14 @@ SSRS keeps some kind of GUID reference, delete and readd the sub-report.
 #F G H I J
 </a>
 
+## Hiding rows
+
+- In tablix right click on a "Row Visibility"
+- Show or hide based on an expression
+- `=Fields!Surname.Value = ""` (Item: <All>, Values: True (highlighted)
+- CanShrink: True property might be useful.
+
+If this doesn't work, click on the row and check that you haven't set a cell level visibility property by mistake. This will override the row visibility property.
 
 <a name="KtoO">
 #K L M N O
