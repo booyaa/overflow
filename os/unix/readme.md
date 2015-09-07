@@ -43,9 +43,6 @@ tags : midas , daynum, date
 
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
-
-
-
 ## declare
 
 shows bash function definitons
@@ -114,6 +111,12 @@ view symbolic links and their targets
 ```find ~/ -maxdepth 2 -type l -print | xargs ls -ld | cut -d  -f13```
 
 cut work better than ```awk {print $10}``` in osx
+
+## for loops
+
+````
+for i in {1..100}; do echo $i; done # count from 1 to 100
+```
 
 <a name="G" />
 ## git
