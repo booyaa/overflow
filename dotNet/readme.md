@@ -27,6 +27,26 @@ public class Poop {
 Poop mrHanky = new Poop() { name = "mrHanky", linkage = 5 };
 ```
 
+##WCF self hosted errors
+
+You want to run your service using a dedicated service account that isn't local admin, but you get the following error in the event log:
+
+```
+Service cannot be started. System.ServiceModel.AddressAccessDeniedException: HTTP could not register URL
+http://+:31337/foo/bar/. Your process does not have access rights to this namespace (see
+http://go.microsoft.com/fwlink/?LinkId=70353 for details). ---> System.Net.HttpListenerException: Access is denied
+```
+The fix is to run the following as admin on the server:
+
+```netsh http add urlacl url=http://+:31337/foo/bar user=DOMAIN\SERVICE_ACCOUNT_NAME```
+
+###background
+
+You'll get this error if your uri hasn't already been registered in ```netsh http show```. You don't get if using IIS instead of self hosted, because IIS hides it away from you.
+
+It didn't help that the microsoft link is now dead, thank goodness for the [internet archive](http://web.archive.org/web/20120218225559/http://msdn.microsoft.com/en-us/library/ms733768.aspx)
+
+
 
 ##XML to Linq
 
