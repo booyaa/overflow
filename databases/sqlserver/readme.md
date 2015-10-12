@@ -124,8 +124,44 @@ WHEN NOT MATCHED THEN
 
 source: http://msdn.microsoft.com/en-us/library/bb510625%28d=printer,v=sql.110%29.aspx
 
-todo: how can we use the OUTPUT clause to pump data into an audit trail w/o using triggers.
+### how to use in an sproc
 
+```sql
+create table foo (
+	needle nvarchar(5),
+	token uniqueidentifier
+)
+
+go
+
+insert into foo values ('bar', @NEWID)
+go
+
+
+create procedure usp_FooIns
+	@needle nvarchar(5),
+	@token uniqueidentifier
+as
+begin
+	merge foo as target
+		using (select @needle, @token) as source (needle, token)
+		on target.needle = source.needle
+		when matched then
+			update -- note the absence of table name, it's implied
+			set token=source.token
+		when not matched then
+			insert (needle, token) values (source.needle, source.token) -- same as update statement
+end;			
+go
+
+
+select * from foo
+exec usp_FooIns(@needle = 'bar', @token = NEWID()) -- will update the existing bar entry, with the new token
+select * from foo
+exec usp_FooIns(@needle = 'foo', @token = NEWID()) -- will create a new row
+select * from foo
+
+todo: how can we use the OUTPUT clause to pump data into an audit trail w/o using triggers
 
 ## _O_penquery oracle through a linked server
 
