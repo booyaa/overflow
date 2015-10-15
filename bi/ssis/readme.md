@@ -1,7 +1,7 @@
 #BIDS helper tips
 
 - Batch property updates, to fix SSIS2012 project where protection level is > 0 [http://www.cathrinewilhelmsen.net/2015/07/14/batch-update-properties-in-ssis-packages-t-sql-tuesday-68/](http://www.cathrinewilhelmsen.net/2015/07/14/batch-update-properties-in-ssis-packages-t-sql-tuesday-68/)
-- 
+ 
 #DLL hell (why i hate .net)
 
 Places to stick DLLs:
