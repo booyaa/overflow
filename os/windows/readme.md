@@ -96,6 +96,10 @@ REM tip, use /format:detailed to see workspace
 tf undo $/MainProject/SubProject/nibble.bas /workspace:WORKSPACE_NAME;USER_ID /s:http://TFSSERVER:PORTNO/TFS_PATH/COLLECTION_NAME
 ```
 
+## reference
+
+- [msdn](https://msdn.microsoft.com/en-us/library/z51z7zy0%28v=vs.100%29.aspx)
+tags : tf , tfs , source control
 
 # _V_ariables
 
