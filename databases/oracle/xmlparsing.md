@@ -1,4 +1,5 @@
 # normalize countries with states
+
 ```sql
 	/* results table
 		Name  State
@@ -103,4 +104,61 @@
 				  COLUMNS countryname varchar(10) PATH 'name') x;
 ```
 
+
+# Meta xml extraction
+
+```xml
+<main>                    
+	<document_id>1234567</document_id>                    
+	<format>E66</format>                    
+	<data>
+		<Fname>ABCD</Fname>
+		<Lname>EFGD</Lname>
+	</data>                
+</main>
+```
+
+You want the xml child of /main/data
+
+TL;DR node() is the key, text() returns nothing because it's xml. extracting /main/data will also give you the parent i.e. `<data><Fname...><etc></data>`
+
+```plsql
+DECLARE
+  xmlData XMLType;
+  sDocumentId VARCHAR2(100);
+  sFormat     VARCHAR2(100);
+  cData CLOB;
+BEGIN
+  xmlData := XMLType(
+  '<main>                    
+<document_id>1234567</document_id>                    
+<format>E66</format>                    
+<data><Fname>ABCD</Fname><Lname>EFGD</Lname></data>                
+</main>'
+  );
+  SELECT
+    ExtractValue(xmlData, '/main/document_id/text()'),
+    ExtractValue(xmlData, '/main/format/text()'),
+    Extract(xmlData, '/main/data/node()').getStringVal()
+  INTO
+    sDocumentId,
+    sFormat,
+    cData
+  FROM
+    (
+      SELECT
+        xmlData
+      FROM
+        DUAL
+    );
+  dbms_output.put_line(sDocumentId);
+  dbms_output.put_line(sFormat);
+  dbms_output.put_line(cData);
+  /* output
+  1234567
+  E66
+  <Fname>ABCD</Fname><Lname>EFGD</Lname>
+  */
+END;
+```
 
