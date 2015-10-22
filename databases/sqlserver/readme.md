@@ -35,6 +35,15 @@ Caveat: Maybe a SS2008 R2 feature in Management Studio
 
 ## Date arithemetic
 
+
+### add/substract
+
+`select dateadd(second, 10, '2015-01-01 00:00:00') -- adds 10 seconds to new years`
+
+####reference
+
+- [http://dwaincsql.com/2014/04/04/manipulating-dates-and-times-in-t-sql/](http://dwaincsql.com/2014/04/04/manipulating-dates-and-times-in-t-sql/)
+
 ### diff
 
 ```select datediff(d, '2014-10-01', getdate())```
@@ -46,6 +55,7 @@ where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library
 equivalent of ```TRUNC(SYSDATE)```
 
 ```(cast(GETDATE()-6 as date)) -- WRONG! does -6 days``` 
+
 
 ## _I_f else
 
