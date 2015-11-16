@@ -13,6 +13,39 @@ do
 done < $1
 ```
 <a name="A"/>
+##arrays
+
+assume the following output from `docker ps -qa`
+
+```
+5f217a3639c3
+5ab3408f49dc
+e8fa510b1538
+0d100b2fbae0
+276cd7dd3c99
+9dc6b2f8e2e7
+```
+
+```
+#!/bin/bash
+declare -a foo=($(docker ps -qa))
+echo foo has ${#foo[@]} items
+echo idx 1 ${foo[1]}
+echo idx 2 ${foo[2]}
+echo all ${foo[*]}
+```
+
+output
+
+```
+foo has 6 items
+1 5ab3408f49dc
+2 e8fa510b1538
+all 5f217a3639c3 5ab3408f49dc e8fa510b1538 0d100b2fbae0 276cd7dd3c99 9dc6b2f8e2e7
+```
+
+tags : arrays , bash , command substitution
+
 ##awk
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
