@@ -1,4 +1,4 @@
--- http://stackoverflow.com/a/326677/105282
+-- function source: http://stackoverflow.com/a/326677/105282
 function os.capture(cmd, raw)
   local f = assert(io.popen(cmd, 'r'))
   local s = assert(f:read('*a'))
@@ -9,6 +9,10 @@ function os.capture(cmd, raw)
   s = string.gsub(s, '[\n\r]+', ' ')
   return s
 end
+
+-- output (tested)
+-- OSX - Darwin
+-- Linux (Raspbian/PI2) - Linux
 
 unix_test = os.capture("uname")
 os_name = ""
