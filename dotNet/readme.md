@@ -46,10 +46,13 @@ nuget pack name_of_project.csproj
 </files>
 ```
 
+source: http://stackoverflow.com/questions/25569552/install-specific-dlls-from-nuget-package
+
 ### further reading 
 
 - https://damieng.com/blog/2014/01/08/simple-steps-for-publishing-your-nuget-package
 - https://npe.codeplex.com/
+- https://docs.nuget.org/create/creating-and-publishing-a-package
 
 ## WCF self hosted errors
 
