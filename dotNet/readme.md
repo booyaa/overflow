@@ -27,7 +27,31 @@ public class Poop {
 Poop mrHanky = new Poop() { name = "mrHanky", linkage = 5 };
 ```
 
-##WCF self hosted errors
+## nuget
+
+### create a package
+
+```
+TODO: add nuget.exe download url
+
+nuget pack name_of_project.csproj
+```
+
+
+### to add vendor dlls to your package (assumes they live in "lib" dir in your project)
+
+```
+<files>
+  <file src="lib\foo.dll target="lib\net45" />
+</files>
+```
+
+### further reading 
+
+- https://damieng.com/blog/2014/01/08/simple-steps-for-publishing-your-nuget-package
+- https://npe.codeplex.com/
+
+## WCF self hosted errors
 
 You want to run your service using a dedicated service account that isn't local admin, but you get the following error in the event log:
 
@@ -38,7 +62,7 @@ The fix is to run the following as admin on the server:
 
 ```netsh http add urlacl url=http://+:31337/foo/bar user=DOMAIN\SERVICE_ACCOUNT_NAME```
 
-###background
+### background
 
 You'll get this error if your uri hasn't already been registered in ```netsh http show```. You don't get if using IIS instead of self hosted, because IIS hides it away from you.
 
