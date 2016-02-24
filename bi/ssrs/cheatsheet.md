@@ -8,9 +8,20 @@
 
 ----
 
-<a name="AtoE">
+<a name="AtoE"/>
 # A B C D E
-</a>
+## Db Connectivity
+
+Where possible always use the OLEDB over ODBC. If you can create the DSN in ODBC, you have a good chance of creating it as OLEDB connection. If you have to, create a connection using SSIS. Steal the connection string.
+
+### Connection Strings
+
+#### iSeries
+`Data Source=ISERIES_SERVER_NAME;User ID=USER_ID;Initial Catalog=INITIAL_CATALOGUE;Provider=IBMDA400.DataSource.1;Force Translate=1;`
+
+#### Oracle
+
+#### ACE (aka JET or MS Office drivers)
 
 ## Error messages
 
