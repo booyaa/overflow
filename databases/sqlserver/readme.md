@@ -56,6 +56,23 @@ equivalent of ```TRUNC(SYSDATE)```
 
 ```(cast(GETDATE()-6 as date)) -- WRONG! does -6 days``` 
 
+## Execute	
+
+```
+create procedure foo
+as
+begin
+	declare @temp as table(nextday datetime)
+	declare @var datetime
+	
+	set @var = '2016-03-31'
+	
+	insert into @temp execute('SELECT TRUNC(?) FROM DUAL', @var) AT ORACLE_LINKED_SERVER_NAME
+	select * from @temp
+end
+```
+
+N.B. you need _rpc_ and _rpc_out_ enabled in your linked server settings
 
 ## _I_f else
 
