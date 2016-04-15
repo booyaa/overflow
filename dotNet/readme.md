@@ -106,3 +106,16 @@ foreach (XElement e in childList)
     Console.WriteLine(e);
 
 ```
+
+## Generate classes from a XML schema
+
+- create your new project that will house classes
+- give your xsd file a sensible name because this will be the class name
+- right click and open in command window (might need power toy), this should open a dos prompt with visual studio gubbins set
+- xsd.exe NameOfXmlSchema.xsd /classes /namespace:ACME.Modles
+ 
+You should find a new class called NameOfXmlSchema.cs in your folder.
+
+Further reading:
+- this [page](http://dotnetdust.blogspot.co.uk/2010/05/correctly-creating-classes-using-xsdexe.html) could help with adding as part of a pre-build event
+- the another useful so [answer](http://stackoverflow.com/questions/14897750/automate-xsd-exe-during-build)
