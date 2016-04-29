@@ -1,6 +1,7 @@
 # Command line tools
 
 ## Cheatsheet
+
 ```
 SET MQSERVER=CHANNEL.NAME/TCP/HOST OR IP ADDRESS(PORT)
 AMQSPUTC QUEUENAME QUEUEMANAGER < SOME\FILE\CALLED\HELLO.TXT
@@ -24,3 +25,6 @@ dspmqver -i
 source: http://www-01.ibm.com/support/docview.wss?uid=swg21621707
 tag: mq , .net , dll
 
+## RFHUtilc
+
+Queue Manager Name: CHANNEL NAME/TCP/HOSTNAME(PORT)
