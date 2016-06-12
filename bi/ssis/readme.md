@@ -48,3 +48,15 @@ public void Main()
         }
     }
 ```
+# Mitigate XML Task (Transform operation) being broken in SSIS2012 (re: CU7 patch)
+
+- Save the transformation result to a file
+- Create a new script task to ingest the file
+
+```
+//reference variable to store contents of XML result
+using (var sr = new StreamReader("c:\\file.xml") // so you dispose of the file lock automatically 
+{
+ var["User::XmlResult"].Value = sr.ReadToEnd();
+}
+```
