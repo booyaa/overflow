@@ -71,7 +71,11 @@ end;
 ## grants
 
 ```sql
-select 'GRANT ' || privilege || ' ON "' || GRANTEE ||'"."' || TABLE_NAME || '" TO "' || GRANTEE || '"."' || TABLE_NAME || '"' FROM dba_tab_privs where grantor like '%FOO%';
+select 'GRANT ' || privilege || ' ON "' || GRANTOR ||'"."' || TABLE_NAME || '" TO "' || GRANTEE || '";' 
+FROM dba_tab_privs 
+WHERE grantor = 'FOO'
+--AND grantee = 'BAR'
+;
 ```
 
 ## synonyms
