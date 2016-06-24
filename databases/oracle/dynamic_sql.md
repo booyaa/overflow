@@ -81,7 +81,9 @@ WHERE grantor = 'FOO'
 ## recreating synonyms as sys
 
 ```sql
-
+select 'CREATE OR REPLACE SYNONYM "' || OWNER || '"."' || SYNONYM_NAME || '" FOR "' || TABLE_OWNER || '"."' || TABLE_NAME || '";' 
+from dba_synonyms 
+where table_owner = 'FOO';
 ```
 
 
