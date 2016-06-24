@@ -78,5 +78,12 @@ WHERE grantor = 'FOO'
 ;
 ```
 
+## recreating synonyms as sys
+
+```sql
+
+```
+
+
 ## synonyms
 # TODO: EXECUTE IMMEDIATE USING..
