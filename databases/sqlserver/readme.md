@@ -32,6 +32,7 @@ Caveat: Maybe a SS2008 R2 feature in Management Studio
 4. In ```Set Scripting Options```, click the ```Advanced``` button
 5. In ```General``` options, change ```Types of data to script``` from ```Schema Only``` to ```Data Only```
 
+Tags : datageneration, data generation, datagen, data, export, data export
 
 ## Date arithemetic
 
