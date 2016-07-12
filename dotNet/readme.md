@@ -119,3 +119,27 @@ You should find a new class called NameOfXmlSchema.cs in your folder.
 Further reading:
 - this [page](http://dotnetdust.blogspot.co.uk/2010/05/correctly-creating-classes-using-xsdexe.html) could help with adding as part of a pre-build event
 - the another useful so [answer](http://stackoverflow.com/questions/14897750/automate-xsd-exe-during-build)
+
+## iisexpress
+
+### Configuring sites
+
+2013 or earlier: `%USERPROFILE%\Documents\IISExpress\config\applicationhost.config`
+2015 : `PATH\TO\TFS\SOLUTION\.vs\config\applicationhost.config`
+
+### Virtual directories
+
+```xml
+<sites>
+    <site name="Some.Web" id="2">
+        <application path="/" applicationPool="Clr4IntegratedAppPool">
+            <virtualDirectory path="/" physicalPath="c:\tfs\path\to\website" />
+			<virtualDirectory path="/static" physicalPath="c:\tfs\path\to\static\assets" /> 
+        </application>
+        <bindings>
+            <binding protocol="http" bindingInformation="*:64699:localhost" />
+        </bindings>
+    </site>
+</sites>
+```
+
