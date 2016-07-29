@@ -239,3 +239,19 @@ USER_NAME
 */
 ```
 
+## Sorting
+
+### Date
+
+```
+--2008 (has DATE datatype)
+SELECT MyDateColumn, count(*) 
+FROM MyTable 
+GROUP BY CAST(myDateTime AS DATE)
+
+--older
+SELECT MyDateColumn, count(*) 
+FROM MyTable 
+GROUP BY DATEADD(day, DATEDIFF(day, 0, MyDateTimeColumn), 0);
+```	
+	
