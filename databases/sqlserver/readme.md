@@ -26,6 +26,7 @@ where int is
 Caveat: Maybe a SS2008 R2 feature in Management Studio
 
 ### Export 
+
 1. Right click on database you wish export
 2. ```Tasks``` > ```Generate Scripts...```
 3. Select objects you wish to export
@@ -188,6 +189,7 @@ exec usp_FooIns(@needle = 'bar', @token = NEWID()) -- will update the existing b
 select * from foo
 exec usp_FooIns(@needle = 'foo', @token = NEWID()) -- will create a new row
 select * from foo
+```
 
 todo: how can we use the OUTPUT clause to pump data into an audit trail w/o using triggers
 
