@@ -71,3 +71,12 @@ begin
 end;
 /
 ```
+
+## Further reading
+
+- http://stackoverflow.com/questions/16925825/having-troubles-with-unixodbc-freetds-and-pyodbc
+- http://www.fatihacar.com/blog/oracle-dblink-with-odbc-connection-from-oracle-to-mssql-server-with-freetds/
+- http://www.olcot.co.uk/sql-blogs/revised-difference-between-collation-sql_latin1_general_cp1_ci_as-and-latin1_general_ci_as
+- http://www.easysoft.com/support/kb/kb01022.html
+- http://www.easysoft.com/applications/oracle/database-gateway-dg4odbc.html
+- https://oracle-base.com/articles/misc/heterogeneous-services-generic-connectivity
