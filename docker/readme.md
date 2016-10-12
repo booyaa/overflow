@@ -1,3 +1,11 @@
+# docker --format
+
+## ps
+
+```
+docker ps --format="table {{.Names}}\t{{.Image}}\t{{.Ports}}"
+```
+
 # docker / wordpress / nginx
 
 ## setup first site
