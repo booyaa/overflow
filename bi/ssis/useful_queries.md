@@ -1,4 +1,4 @@
-# Queries to make using SSIS a chore
+# Queries to make using SSIS less of a chore
 
 ## SSIS2012 View packages version for a given project 
 
