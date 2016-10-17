@@ -8,7 +8,8 @@ REM to hide query output
 CLEAR SCREEN
 
 spool release
-REM will create a spool called release.lst
+REM will create a spool called release.lst, SQL Dev you can specify c:\path\to\spool file
+REM otherwise your spool files will appear in %USERPROFILE%\AppData\Roaming\SQL Developer
 PROMPT Running release on &x
 
 REM example of a long running process and capturing the timing
