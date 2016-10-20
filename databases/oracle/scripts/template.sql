@@ -1,4 +1,6 @@
 CONNECT user_id/&password
+SET sqlprompt "_USER'@'_CONNECT_IDENTIFIER _PRIVILEGE> "
+REM quick and dirty way to get system details
 
 TIMING START "Release timing"
 
@@ -20,7 +22,10 @@ REM start logging of all output
 SET ECHO ON
 SET FEEDBACK ON
 
+REM object creation will be echoed
+
 SET DEFINE OFF
+REM when you don't want bind variables interpolation
 PROMPT let &foo be &foo
 SET DEFINE ON
 
