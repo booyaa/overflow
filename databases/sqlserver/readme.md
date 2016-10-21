@@ -21,6 +21,9 @@ where int is
 
 ```select cast(cast(DateAsInt as varchar(10)) as date```
 
+###from string to datetime
+```select convert(char(10), '20160229', 120)```
+
 ## _D_ata import/export
 
 Caveat: Maybe a SS2008 R2 feature in Management Studio
@@ -37,10 +40,18 @@ Tags : datageneration, data generation, datagen, data, export, data export
 
 ## Date arithemetic
 
-
 ### add/substract
 
 `select dateadd(second, 10, '2015-01-01 00:00:00') -- adds 10 seconds to new years`
+
+### leapyears
+
+```sql
+select dateadd(year, 3, '2016-02-29') -- gives you 2019-02-29 wrong!
+select dateadd(day, 1095, '2016-02-29') -- gives you 2019-02-28 correct!
+```
+
+quick and date way is to extract `right('20160229', 4)` and check for '0229'
 
 ####reference
 
