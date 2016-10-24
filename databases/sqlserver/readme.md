@@ -67,7 +67,17 @@ where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library
 
 equivalent of ```TRUNC(SYSDATE)```
 
-```(cast(GETDATE()-6 as date)) -- WRONG! does -6 days``` 
+#### SQL Server 2008
+
+```cast(getdate as Date)```
+
+Gives you `2016-10-24`
+
+#### Backward compatibility
+
+```dateadd(dd, datediff(dd,0, getDate()), 0)```
+
+Gives you `2016-10-24 00:00:00.000`
 
 ## Execute	
 
