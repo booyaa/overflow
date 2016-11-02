@@ -1,12 +1,12 @@
-## _C_onversion
+# Conversion
 
-###convert integers
+## convert integers
 
 [https://technet.microsoft.com/en-us/library/ms187928](https://technet.microsoft.com/en-us/library/ms187928)
 
 popular 
 
-```select convert(varchar(255), getdate(), int)```
+`select convert(varchar(255), getdate(), int)`
 
 where int is 
 
@@ -17,34 +17,74 @@ where int is
 * 127 is ISO8601 timezone
 
 
-###from int date 20141009 to datetime
+## from int date 20141009 to datetime
 
-```select cast(cast(DateAsInt as varchar(10)) as date```
+`select cast(cast(DateAsInt as varchar(10)) as date`
 
-###from string to datetime
-```select convert(char(10), '20160229', 120)```
+## from string to datetime
 
-## _D_ata import/export
+`select convert(char(10), '20160229', 120)`
+
+
+# Cursors
+
+```sql
+declare @field varchar(100);
+declare @data_cur cursor;
+
+set @data_cur = cursor FOR
+	with data as (	
+	select '1' as thing
+	union
+	select '2'
+	union
+	select '3'
+	)
+	select thing from data
+
+open @data_cur;
+
+fetch next from @data_cur into @field;
+
+while @@FETCH_STATUS = 0
+begin
+	print 'row: ' + @field
+	fetch next from @data_cur into @field;
+end
+
+close @data_cur
+deallocate @data_cur
+```
+
+## Reference material
+
+- http://sqlblog.com/blogs/adam_machanic/archive/2007/10/13/cursors-run-just-fine.aspx
+- http://stackoverflow.com/questions/8728858/oracle-cursor-vs-sql-server-cursor#8729418
+- http://stackoverflow.com/a/747376/105282
+
+Remember
+
+# Data import/export
 
 Caveat: Maybe a SS2008 R2 feature in Management Studio
 
-### Export 
+## Export 
 
 1. Right click on database you wish export
-2. ```Tasks``` > ```Generate Scripts...```
+2. `Tasks` > `Generate Scripts...`
 3. Select objects you wish to export
-4. In ```Set Scripting Options```, click the ```Advanced``` button
-5. In ```General``` options, change ```Types of data to script``` from ```Schema Only``` to ```Data Only```
+4. In `Set Scripting Options`, click the `Advanced` button
+5. In `General` options, change `Types of data to script` from `Schema Only` to `Data Only`
 
 Tags : datageneration, data generation, datagen, data, export, data export
 
-## Date arithemetic
+# Date arithemetic
 
-### add/substract
+## add/substract
 
 `select dateadd(second, 10, '2015-01-01 00:00:00') -- adds 10 seconds to new years`
 
-### leapyears
+## leapyears
 
 ```sql
 select dateadd(year, 3, '2016-02-29') -- gives you 2019-02-29 wrong!
@@ -53,35 +93,35 @@ select dateadd(day, 1095, '2016-02-29') -- gives you 2019-02-28 correct!
 
 quick and date way is to extract `right('20160229', 4)` and check for '0229'
 
-####reference
+### reference
 
 - [http://dwaincsql.com/2014/04/04/manipulating-dates-and-times-in-t-sql/](http://dwaincsql.com/2014/04/04/manipulating-dates-and-times-in-t-sql/)
 
-### diff
+## diff
 
-```select datediff(d, '2014-10-01', getdate())```
+`select datediff(d, '2014-10-01', getdate())`
 
 where d is days, for more dateparts see: http://msdn.microsoft.com/en-us/library/ms189794.aspx
 
-### date only part of getdate
+## date only part of getdate
 
 equivalent of ```TRUNC(SYSDATE)```
 
-#### SQL Server 2008
+### SQL Server 2008
 
-```cast(getdate as Date)```
+`cast(getdate as Date)`
 
 Gives you `2016-10-24`
 
-#### Backward compatibility
+### Backward compatibility
 
-```dateadd(dd, datediff(dd,0, getDate()), 0)```
+`dateadd(dd, datediff(dd,0, getDate()), 0)`
 
 Gives you `2016-10-24 00:00:00.000`
 
-## Execute	
+# Execute	
 
-```
+```sql
 create procedure foo
 as
 begin
@@ -97,9 +137,9 @@ end
 
 N.B. you need _rpc_ and _rpc_out_ enabled in your linked server settings
 
-## _I_f else
+# If else
 
-```
+```sql
 DECLARE @jobid INT
 
 WITH crraaaazzzzy AS (
@@ -109,7 +149,6 @@ WITH crraaaazzzzy AS (
 	UNION ALL
 	SELECT 3 jobid
 )
-
 
 SELECT @jobid = MAX(@jobid)  
 FROM crraaaazzzzy
@@ -122,13 +161,13 @@ ELSE
 	PRINT 'no records to delete'
 ```
 
-### inserts
+## inserts
 
-#### create a back up table
+### create a back up table
 
-```select * into foo_backup from foo```
+`select * into foo_backup from foo`
 
-#### intos
+### intos
 
 ```sql
 insert into foo(fizz,buzz)
@@ -136,7 +175,7 @@ insert into foo(fizz,buzz)
   from bar
 ```
 
-#### identities
+### identities
 
 ```sql
 set identity_insert database.schema.table on -- allows us to insert ids
@@ -146,17 +185,15 @@ select col1,col2 from database_backup.schema.table;
 
 set identity_insert database.schema.table off -- return to normal
 ```
-## _F_unctions
+# Functions
 
 indexof/instring is called charindex and usage is different from most indexing functions:
 
-```
-select charindex('needle','needle in haystack')
-```
+`select charindex('needle','needle in haystack')`
 
 tags: strings , search , indexof , instr
 
-## _M_erge
+# Merge
 
 ```sql
 MERGE [dbo].[TargetTable] AS t
@@ -174,7 +211,7 @@ WHEN NOT MATCHED THEN
 
 source: http://msdn.microsoft.com/en-us/library/bb510625%28d=printer,v=sql.110%29.aspx
 
-### how to use in an sproc
+## how to use in an sproc
 
 ```sql
 create table foo (
@@ -214,13 +251,13 @@ select * from foo
 
 todo: how can we use the OUTPUT clause to pump data into an audit trail w/o using triggers
 
-## _O_penquery oracle through a linked server
+# Openquery oracle through a linked server
 
-```select * FROM OPENQUERY(ORCL_LINKSVR, 'SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM ALL_OBJECTS WHERE OBJECT_NAME=''FOO''')```
+`select * FROM OPENQUERY(ORCL_LINKSVR, 'SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM ALL_OBJECTS WHERE OBJECT_NAME=''FOO''')`
 
-## _T_ransactions
+# Transactions
 
-```
+```sql
 BEGIN TRAN foo
 
 UPDATE foo SET bar='OH NOES!'
@@ -235,7 +272,7 @@ ROLLBACK TRAN foo -- and breath again
 
 using try and catch
 
-```
+```sql
 BEGIN TRY
 	BEGIN TRANSACTION
 	--do something potentially harmful to db...
@@ -248,9 +285,9 @@ END CATCH
 ```
 tag: transaction , rollback , tran
 
-## Extract _U_sername from system_user
+# Extract Username from system_user
 
-```
+```sql
 select substring(SYSTEM_USER, charindex('\', system_user)+1, len(system_user))
 
 /* 
@@ -262,11 +299,11 @@ USER_NAME
 */
 ```
 
-## Sorting
+# Sorting
 
-### Date
+## Date
 
-```
+```sql
 --2008 (has DATE datatype)
 SELECT MyDateColumn, count(*) 
 FROM MyTable 
@@ -278,7 +315,7 @@ FROM MyTable
 GROUP BY DATEADD(day, DATEDIFF(day, 0, MyDateTimeColumn), 0);
 ```	
 	
-## _V_ersion
+# Version
 
 |                   | RTM           | SP1          | SP2        | SP3        | SP4        | Latest                   |
 | ----------------- | ------------- | ------------ | ---------- | ---------- | ---------- | ------------------------ |
