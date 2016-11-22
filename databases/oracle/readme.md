@@ -1,18 +1,18 @@
 <A name="A"/>
-##_A_ll or some
+# _A_ll or some
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 Return all or some values
 
 Assume data_group table looks like this
 
-```
+```text
 |group_id|table_name|
 |1       |foo       |
 |2       |bar       |
 ```
-_
-```
+
+```sql
 CREATE OR REPLACE PROCEDURE foo (p_group_id IN NUMBER)
 AS
   CURSOR cur_data_group(p_group_id NUMBER)
@@ -31,7 +31,7 @@ END;
 
 Example output
 
-```
+```sql
 SET SERVEROUTPUT ON
 
 EXEC foo(p_group_id=>1);
@@ -45,7 +45,7 @@ bar
 ```
 
 <A name="B"/>
-##_B_itmasks 
+# _B_itmasks 
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 
@@ -65,7 +65,7 @@ where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 
 ```
 <A name="C"/>
-##_C_SV
+# _C_SV
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 Quick and dirty CSV export SELECT csv hint.
@@ -98,38 +98,36 @@ SELECT /*text*/ * FROM scott.emp;
 Full details and source can be  [here](http://www.thatjeffsmith.com/archive/2012/05/formatting-query-results-to-csv-in-oracle-sql-developer/).
 
 <A name="D"/>
-##_D_ata Dictionary
+# _D_ata Dictionary
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 who has create database link (shows roles and users) privs
 
-```select grantee from dba_sys_privs  where PRIVILEGE ='CREATE DATABASE LINK';```
+`select grantee from dba_sys_privs  where PRIVILEGE ='CREATE DATABASE LINK';`
 
-##Database name
+# Database name
 
-```select ora_database_name from dual```
+`select ora_database_name from dual`
 
-##Datapump
+# Datapump
 
-###IMPORT
+## IMPORT
 
 ```sql
 GRANT CREATE TABLE TO user; -- not role unless you want lulz
 GRANT ROLE IMP_FULL_DATABASE to user;
 ```
 
-```GRANT CREATE TABLE``` is an important gotcha, otherwise you'll spend ages scratching your head wondering why ```impdp``` works, but api doesn't
+`GRANT CREATE TABLE` is an important gotcha, otherwise you'll spend ages scratching your head wondering why `impdp` works, but api doesn't
 
-###Troubleshooting
+## Troubleshooting
 
 Use the command line tool to generate table schemas in a dump file if dbms_datapump api fails to import
 
-```
-impdp directory=expdir dumpfile=myexp.dmp sqlfile=ddl.sql
-```
+`impdp directory=expdir dumpfile=myexp.dmp sqlfile=ddl.sql`
 
 
-##Dates
+# Dates
 
 ```sql
 select length('2015-JAN-12') from dual;	-- 11 - lolwat?
@@ -138,7 +136,7 @@ select length('20150112') from dual;	-- 8 - meh
 select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 ```
 <A name="E"/>
-##_E_scaping
+# _E_scaping
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
@@ -163,11 +161,14 @@ flashback table foo to before drop rename to bar; -- restore foo as bar (if foo 
 ##Functions
 
 ###substring
+
 ```sql
 select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
+
 <A name="G"/>
+
 <A name="I"/>
 ##_I_nserts
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
@@ -199,9 +200,8 @@ source: http://oracle-base.com/articles/misc/recompiling-invalid-schema-objects.
 
 useful queries:
 
-```sql
-select obj#, compile_err from utl_recomp_errors;
-```
+`select obj#, compile_err from utl_recomp_errors;`
+
 tags: recompile , UTL_RECOMP , invalid , dba_objects , user_objects , errors , deploy , build
 
 <A name="J"/>
@@ -214,14 +214,10 @@ tags: recompile , UTL_RECOMP , invalid , dba_objects , user_objects , errors , d
 select sid, serial#, inst_id, username, osuser, program 
 from gv$session 
 where username is not null;
-```
 
-```sql
 -- r11 onwards
 alter system kill session 'SID,SERIAL#,@INST_ID';
-```
 
-```sql
 -- for the copy and pastafarians
 select 'alter system kill session ''' || sid || ', ' || serial# || ', @' || inst_id || ''';' || ' -- ' || username || ' - ' || osuser || ' - ' || program 
 
@@ -229,6 +225,7 @@ from gv$session
 where osuser like '%saving_copy_pastafarians_from_killing_everything%' -- this needs to be a valid where clause
 /
 ```
+
 <A name="L"/>
 ##_L_imiting rows
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
@@ -243,11 +240,11 @@ SELECT *
 ```
 
 <A name="M"/>
-##_M_arkdown nav generator
+## _M_arkdown nav generator
 
-Add ```<A href="A"/>``` to your titles and then use this code to generate a alphabeta nav bar like this ```[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)...```
+Add `<A href="A"/>` to your titles and then use this code to generate a alphabeta nav bar like this `[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)...`
 
-```
+```sql
 SET SERVEROUTPUT ON
 DECLARE
   ch CHAR;
@@ -261,13 +258,14 @@ END LOOP;
 END;
 /
 ```
-##_M_aterialize Views
+
+## _M_aterialize Views
 
 Creates a snapshot of a view. Useful where you don't need historic data (use bulk load pattern if you need this).
 
 Create the materialize view.
 
-```
+```sql
 CREATE MATERIALIZE VIEW foo_mv
 TABLESPACE "foo_data"
 BUILD DEFERRED
@@ -279,7 +277,7 @@ SELECT * FROM foo_v
 
 Create the refresh group.
 
-```
+```sql
 BEGIN
   DBMS_REFRESH.destroy (name => 'RGRP_FOO_MV');
   DBMS_REFRESH.make (name => 'RGRP_FOO_MV', next_date => null, interval => null);
@@ -290,26 +288,27 @@ END;
 
 To refresh the materialize view (you could stick this in a stored proc and execute in your alternative task scheduling system).
 
-```
-EXEC DBMS_REFRESH.refresh('RGRP_FOO_MV');
-```
+`EXEC DBMS_REFRESH.refresh('RGRP_FOO_MV');`
 
 Useful queries:
 
-```
+```sql
 SELECT * FROM user_refresh_children; -- to see existing refresh groups
 SELECT * FROM user_mviews; -- to view freshness of materialized views
 ```
+
 <A name="N"/>
 <A name="O"/>
 <A name="P"/>
-##_P_rivs
+# _P_rivs
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
-```GRANT ON object_name TO user_or_role```
-```REVOKE ON object_name FROM user_or_role```
+```sql
+GRANT ON object_name TO user_or_role
+REVOKE ON object_name FROM user_or_role
+```
 
-###Role or user
+## Role or user
 
 Grant on role whenever possible, but for dynamic sql sprocs you need to grant explictly on user. Otherwise you'll get an ORA-00942 Table or view not found.
 
@@ -343,7 +342,7 @@ alarm bells:
 useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
 <A name="R"/>
-##_R_andom data
+# _R_andom data
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
@@ -361,9 +360,10 @@ select
   stddev(rnd_norm) as sd_norm
 from foo;
 ```
-alternate method for pl/sql blocks is to use ```DBMS_STATS.convert_raw_value```, but it's more of a pita since you have to pass an variable reference.
 
-```
+alternate method for pl/sql blocks is to use `DBMS_STATS.convert_raw_value`, but it's more of a pita since you have to pass an variable reference.
+
+```sql
 SET SERVEROUTPUT ON
 DECLARE
 foo VARCHAR2(25);
@@ -375,11 +375,11 @@ END;
 
 ```
 
-##Raw values
+# Raw values
 
 As used by RAW datatype and various data dictionary columns
 
-```
+```sql
 SELECT  table_name,
         column_name, 
         data_type,        
@@ -404,8 +404,10 @@ SELECT  table_name,
 ORDER 
    BY table_name, column_name;
 ```
+
+
 <A name="S"/>
-##_S_ampling
+# _S_ampling
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
@@ -428,7 +430,7 @@ SELECT segment_name,
     BY 2 DESC;
 ```
 
-##stack traces
+## stack traces
 
 ```sql
 BEGIN
@@ -441,10 +443,10 @@ END
 
 tags: stack , backtrace , errors, stack trace
 
-##SQL*plus
+## SQL*plus
 
-###defaults
-####for scripting
+## defaults
+### for scripting
 
 ```
 SET LINESIZE 90
@@ -452,14 +454,14 @@ SET PAGESIZE 100
 SET WRAP OFF
 ```
 
-####interactive
+### interactive
 
 ```
 col <field name> format a15 
 set pagesize 25
 ```
 
-###spooling
+### spooling
 
 ```
 SPOOL some_shit.sql
@@ -486,7 +488,7 @@ DEFINE _EDITOR=vi
 ```
 
 ##resources
-* http://www.orafaq.com/wiki/SQL*Plus_FAQ
+* All the scripts! - http://www.oracle-wiki.net/startsql
 
 <A name="T"/>
 ##_T_emporal queries
