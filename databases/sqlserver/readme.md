@@ -68,6 +68,32 @@ Remember
 
 Caveat: Maybe a SS2008 R2 feature in Management Studio
 
+# Dependencies for a give schema
+
+```sql
+DECLARE @schema VARCHAR(50)
+
+SET @schema = 'wowser'
+
+SELECT referenced_schema_name
+	,referenced_entity_name
+	,OBJECT_SCHEMA_NAME(referencing_id) AS referencing_schema_name
+	,OBJECT_NAME(referencing_id) AS referencing_entity_name
+FROM sys.sql_expression_dependencies AS sed
+WHERE referenced_id IN
+	(
+		SELECT object_id
+		FROM sys.tables st
+		LEFT JOIN sys.schemas ss ON st.schema_id = ss.schema_id
+		WHERE ss.NAME = @schema
+		)
+	AND OBJECT_SCHEMA_NAME(referencing_id) <> @schema
+ORDER BY referenced_entity_name
+	,referencing_schema_name
+	,referencing_entity_name;
+GO
+```
+
 ## Export 
 
 1. Right click on database you wish export
