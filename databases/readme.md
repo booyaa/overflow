@@ -39,3 +39,8 @@ SELECT *
     ON foo.id = bar.id
         AND foo.fizz = bar.buzz
 ```
+
+
+# reading
+
+- [running oracle packages or sprocs on sql server](https://fred115.wordpress.com/2013/04/13/call-oracle-store-procedure-from-ms-sql-server-via-openquery/)
