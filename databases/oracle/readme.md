@@ -300,7 +300,57 @@ SELECT * FROM user_mviews; -- to view freshness of materialized views
 <A name="N"/>
 <A name="O"/>
 <A name="P"/>
-# _P_rivs
+# _P_ivot
+
+pivot => rows to columns
+unpivot => columns to rows
+```sql
+WITH
+      T
+AS
+(
+   SELECT
+      TO_CHAR(EMPNO) EMPNO,
+      ENAME,
+      JOB,
+      TO_CHAR(MGR) MGR,
+      TO_CHAR(HIREDATE) HIREDATE,
+      TO_CHAR(SAL) SAL,
+      TO_CHAR(COMM) COMM,
+      TO_CHAR(DEPTNO) DEPTNO
+   FROM
+      EMP
+   WHERE
+      EMPNO=7788
+)
+SELECT
+   *
+FROM
+   T
+UNPIVOT
+INCLUDE NULLS
+(
+   VALUE
+   FOR
+      COL
+   IN
+   (
+      EMPNO,
+      ENAME,
+      JOB,
+      MGR,
+      HIREDATE,
+      SAL,
+      COMM,
+      DEPTNO
+   )
+);
+
+```
+
+source: http://www.dba-oracle.com/t_advanced_sql_pivot_unpivot.htm
+
+# Privs
 [A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
