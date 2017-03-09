@@ -67,7 +67,7 @@ foo=$(ls *.sql)
 ## date arithmetic
 
 ```
-date +"%Y-%m-%d" - d '1971-12-31'+**nnnnn**days
+date +"%Y-%m-%d" -d "1971-12-31+nnnnn days"
 ```
 where **nnnnn** is your midas day number
 
