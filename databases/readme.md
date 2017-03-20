@@ -1,3 +1,53 @@
+# basics
+
+```sql
+WITH foo AS (
+    SELECT
+        1 AS id,
+        111 AS data
+    FROM
+        dual
+    UNION ALL
+    SELECT
+        2 AS id,
+        222 AS data
+    FROM
+        dual
+    UNION ALL
+    SELECT
+        3 AS id,
+        333 AS data
+    FROM
+        dual
+),bar AS (
+    SELECT
+        2 AS id,
+        'AAA' AS data
+    FROM
+        dual
+    UNION ALL
+    SELECT
+        3 AS id,
+        'BBB' AS data
+    FROM
+        dual
+    UNION ALL
+    SELECT
+        4 AS id,
+        'CCC' AS data
+    FROM
+        dual
+)  select f.data as foo, b.data as bar
+from foo f
+--cross join bar b /* lol foo x bar = 9 rows*/
+--inner join bar b /* fetches data if present in both tables - 2 rows*/
+--left join bar b /* fetches data if present in left - 3 rows */
+--right join bar b /* fetches data if present in right - 3 rows */
+full outer join bar b /* gets everything even nulls, not the same as cross join - 4 rows*/
+on f.id = b.id
+;
+```
+
 # boilerplate
 
 ## sorting by month abbreviation
