@@ -1,3 +1,27 @@
+# when xml attacks
+
+At some point in your xml wrangling career you will hit an node whose data is too big for Oracle's `EXTRACTVALUE` (I think the upper limit is 4000 characters) and get this lovely message.
+
+```
+ORA-01706: user function result value was too large
+01706. 00000 -  "user function result value was too large"
+```
+
+To mitigate this problem, you need to switch to **XMLTABLE** and it's useful *PASSING* attribute:
+
+```sql
+SELECT
+    fix.biggie AS notorious
+FROM
+    source_table_with_xmltype_column o,
+    XMLTABLE ( '/*'
+        PASSING o.xml_field COLUMNS
+            biggie clob PATH 'substring(/path/to/offending/item/text(),1,4000)'
+    ) fix;
+```
+
+The gist of the fix is to use xpath to truncate the text value before it's handed off to Oracle. Trying to cast the `xmltype` column as a `varchar2(4000)` will not fix it because the problem happens as **extractvalue** is parsing the node.
+
 # normalize countries with states
 
 ```sql
