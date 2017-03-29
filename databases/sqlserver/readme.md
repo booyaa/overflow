@@ -8,7 +8,7 @@ popular
 
 `select convert(varchar(255), getdate(), int)`
 
-where int is 
+where `int` is 
 
 * 110 is US format (so will cause much lulz elsewhere)
 * 112 is ISO sortable yyyymmdd
