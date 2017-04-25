@@ -1,0 +1,2 @@
+# Flattening xmltype columns
+
