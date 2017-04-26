@@ -1,8 +1,5 @@
 # Flattening xmltype columns
 
-
-
-
 ## Getting a distinct list of node paths with values
 
 *TODO: turn this into a useful example*
@@ -35,3 +32,16 @@ WITH node_list AS (
 FROM
     node_list nl;    
 ```    
+
+## Further Reading
+
+- xpath function [string-length](https://msdn.microsoft.com/en-us/library/ms256171(v=vs.110).aspx)
+- xpath [node tests](http://www.way2tutorial.com/xml/xpath_node_test_examples.php)
+
+### flwor specific
+- [stylusstudios](http://www.stylusstudio.com/xquery-primer.html)
+- [w3schools](https://www.w3schools.com/xml/xquery_flwor.asp)
+- [altova](https://www.altova.com/xpath-intro.html)
+- [all things oracle](http://allthingsoracle.com/xquery-for-absolute-beginners-part-3-flwor/)
+- [msdn](https://docs.microsoft.com/en-us/sql/xquery/flwor-statement-and-iteration-xquery) warning: may have sql server specific stuff.
+- [wikibooks](https://en.wikibooks.org/wiki/XQuery/FLWOR_Expression) also has a ton of xquery items.
