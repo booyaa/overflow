@@ -17,9 +17,10 @@ WITH node_list AS (
     $nodes/string-join(ancestor-or-self::*/name(.),''/'') 
 }
 ;for $i in $doc//*
-    let $node_path := local:path-to-node($i)
-    let $node_value := $i/text()    
-    where string-length($node_value) > 0 
+    let $node_path := local:path-to-node($i)    (: still don''t have a clue how this func works :)
+    let $node_value := $i/text()
+    where string-length($node_value) > 0        (: how to exclude nodes without values :)
+
     return <data>
                 <path>{$node_path}</path>
                 <value>{$node_value}</value>
