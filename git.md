@@ -1,5 +1,9 @@
 # git
 
+# git the last commit (see what i did there ;)
+
+`git log --format="%H" -n 1`
+
 # sync with other repos (bitbucket)
 
 note: bitbucket has a github importer, which might be easier if you're do a full sync of all your repos.
