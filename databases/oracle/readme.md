@@ -1,6 +1,4 @@
-<A name="A"/>
-# _A_ll or some
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# All or some
 
 Return all or some values
 
@@ -44,10 +42,7 @@ foo
 bar
 ```
 
-<A name="B"/>
-# _B_itmasks 
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
-
+# Bitmasks 
 
 ```sql
 with data as
@@ -62,11 +57,9 @@ select * from data
 where bitand(wanted, 5) <> 0; -- gets you appears_in_both and alpha (4+1)
 
 --where bitand(wanted, 6) <> 0; -- gets you appears_in_both and beta (4+2)
-
 ```
-<A name="C"/>
-# _C_SV
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+# CSV
 
 Quick and dirty CSV export SELECT csv hint.
 
@@ -95,11 +88,10 @@ SELECT /*loader*/ * FROM scott.emp;
 SELECT /*fixed*/ * FROM scott.emp;
 SELECT /*text*/ * FROM scott.emp;
 ```
+
 Full details and source can be  [here](http://www.thatjeffsmith.com/archive/2012/05/formatting-query-results-to-csv-in-oracle-sql-developer/).
 
-<A name="D"/>
-# _D_ata Dictionary
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Data Dictionary
 
 who has create database link (shows roles and users) privs
 
@@ -135,9 +127,8 @@ select length('2015-01-12') from dual;	-- 10 - ISO8601 lite?
 select length('20150112') from dual;	-- 8 - meh
 select length('12-JAN-15') from dual;	-- 9 - Oraclistas
 ```
-<A name="E"/>
-# _E_scaping
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+
+# Escaping
 
 ```sql
 -- escape _
@@ -147,33 +138,46 @@ SELECT * FROM FOO WHERE BAR LIKE 'A\_B' ESCAPE '\';
 SELECT q'|who's house?|' FROM DUAL;
 ```
 
-<A name="F"/>
-##_F_lashback
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Flashback
 
 ```sql
 select * from user_recyclebin where original_name = 'foo'; -- check recyclebin for file
 flashback table foo to before drop; -- restore foo
 flashback table foo to before drop rename to bar; -- restore foo as bar (if foo is in use and you just need it flashback for reference purposes)
-
 ```
 
-##Functions
+## Auditing changes using flash back
 
-###substring
+```sql
+CLEAR SCREEN
+
+COL name FORMAT a30
+
+COL rname FORMAT a30
+
+SELECT
+    name,
+    rname
+FROM
+    all_refresh_children AS OF TIMESTAMP ( trunc(SYSDATE - 1 / 24) )
+WHERE
+    rname = 'RFG_GROUP2';
+```
+
+where:
+ - `1 / 24` is an hour ago
+ - `36 / 24` is yesterday an hour and half ago
+
+# Functions
+
+## substring
 
 ```sql
 select substring('foobar', -3) from dual; -- returns "bar"
 select substring('foobar', 0, 3) from dual; -- returns "foo"
 ```
 
-<A name="G"/>
-
-<A name="I"/>
-##_I_nserts
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
-
-###multi-table
+## Inserts multi-table
 
 This assumes you have already created mailing_list and stats table.
 
@@ -189,7 +193,7 @@ INSERT ALL
       FROM big_user_data;
 ```
 
-##Invalid objects
+# Invalid objects
 
 as sys or sysdba role
 
@@ -204,10 +208,7 @@ useful queries:
 
 tags: recompile , UTL_RECOMP , invalid , dba_objects , user_objects , errors , deploy , build
 
-<A name="J"/>
-<A name="K"/>
-##_K_illing sessions
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Killing sessions
 
 ```sql
 -- find
@@ -226,9 +227,7 @@ where osuser like '%saving_copy_pastafarians_from_killing_everything%' -- this n
 /
 ```
 
-<A name="L"/>
-##_L_imiting rows
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Limiting rows
 
 An alternative to rownum (which runs before an ORDER BY) is to use FETCH.
 
@@ -239,8 +238,7 @@ SELECT *
    FETCH FIRST 50 PERCENT ROWS ONLY;
 ```
 
-<A name="M"/>
-## _M_arkdown nav generator
+# Markdown nav generator
 
 Add `<A href="A"/>` to your titles and then use this code to generate a alphabeta nav bar like this `[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)...`
 
@@ -259,7 +257,7 @@ END;
 /
 ```
 
-## _M_aterialize Views
+## Materialize Views
 
 Creates a snapshot of a view. Useful where you don't need historic data (use bulk load pattern if you need this).
 
@@ -297,10 +295,7 @@ SELECT * FROM user_refresh_children; -- to see existing refresh groups
 SELECT * FROM user_mviews; -- to view freshness of materialized views
 ```
 
-<A name="N"/>
-<A name="O"/>
-<A name="P"/>
-# _P_ivot
+# Pivot
 
 pivot => rows to columns
 unpivot => columns to rows
@@ -351,7 +346,6 @@ INCLUDE NULLS
 source: http://www.dba-oracle.com/t_advanced_sql_pivot_unpivot.htm
 
 # Privs
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
 ```sql
 GRANT ON object_name TO user_or_role
@@ -362,11 +356,9 @@ REVOKE ON object_name FROM user_or_role
 
 Grant on role whenever possible, but for dynamic sql sprocs you need to grant explictly on user. Otherwise you'll get an ORA-00942 Table or view not found.
 
-<A name="Q"/>
-##_Q_ueries
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Queries
 
-###selecting by time range
+## selecting by time range
 
 assume that some_date_stamp is date type.
 
@@ -376,7 +368,7 @@ from foo
 where some_date_stamp between TO_DATE('14-FEB-14 14:14:14', 'DD-MON_YY HH24:MI:SS) and TO_DATE('14-FEB-14 15:15:15', 'DD-MON_YY HH24:MI:SS)
 ```
 
-###explain plan usage
+## explain plan usage
 
 ```sql
 explain plan for select * from foo where bar='true';
@@ -391,9 +383,7 @@ alarm bells:
 
 useful reads: http://www.orafaq.com/tuningguide/partition%20prune.html
 
-<A name="R"/>
-# _R_andom data
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Random data
 
 ```sql
 with foo as (
@@ -456,9 +446,7 @@ ORDER
 ```
 
 
-<A name="S"/>
-# _S_ampling
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Sampling
 
 ```sql
 SELECT   foo,
@@ -468,7 +456,7 @@ SELECT   foo,
    FETCH FIRST 5 ROWS ONLY; -- returns only 5 rows, but will process all rows before return the 1st five.
 ```
 
-##How much space is a table using
+# Storage use of a table
 
 ```sql
 SELECT segment_name,
@@ -480,7 +468,7 @@ SELECT segment_name,
     BY 2 DESC;
 ```
 
-## stack traces
+# Stack traces
 
 ```sql
 BEGIN
@@ -493,7 +481,7 @@ END
 
 tags: stack , backtrace , errors, stack trace
 
-## SQL*plus
+# SQL*plus
 
 ## defaults
 ### for scripting
@@ -520,7 +508,7 @@ select 'insert into foo(id) values(' || id || ');' from bar
 SPOOL OFF
 @some_shit.sql
 ```
-###sysing up
+### sysing up
 
 this assumes you're in the oracle admin group for what ever your os is. also ```/nolog``` works in linux which is bloody insane.
 
@@ -529,7 +517,7 @@ sqlplus /nolog
 connect / as sysdba
 ```
 
-###editing command history
+## editing command history
 
 
 ```
@@ -537,14 +525,14 @@ SET EDITFILE "foo.buf"
 DEFINE _EDITOR=vi
 ```
 
-##resources
+## resources
+
 * All the scripts! - http://www.oracle-wiki.net/startsql
 
-<A name="T"/>
-##_T_emporal queries
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
 
-###AS OF
+# Temporal queries
+
+## AS OF
 
 keywords: flashback, scn
 
@@ -560,7 +548,9 @@ from foo
 as of timestamp(sysdate-1/24); -- an hour ago
 ```
 
-###SCN to timestamp (another alternative way to view the data, use rowid for deduping)
+See also: auditing refresh groups.
+
+## SCN to timestamp (another alternative way to view the data, use rowid for deduping)
 
 ```
 select SCN_TO_TIMESTAMP(ORA_ROWSCN)
@@ -575,7 +565,7 @@ ORA_ROWSCN SCN_TO_TIMESTAMP(ORA_ROWSCN)
    9.5E+12 02-DEC-14 13.08.14.000000000
 */
 ```
-##Trace
+# Trace
 
 If oracle support want a trace log:
 
@@ -619,13 +609,13 @@ resources:
 * [https://jonathanlewis.wordpress.com/2011/02/15/ora-29913/](https://jonathanlewis.wordpress.com/2011/02/15/ora-29913/)
  
 
-##synonyms
+# synonyms
 
 ```sql
 select 'CREATE OR REPLACE SYNONYM "' || OWNER || '"."' || TABLE_NAME || '" FOR "' || TABLE_OWNER || '"."' || TABLE_NAME || '";' from DBA_SYNONYMS where OWNER like '%FOO%';
 ```
 
-##TO_CHAR
+# TO_CHAR
 
 useful formats
 
@@ -651,11 +641,9 @@ TraceFileName=C:\odpnet4.trc
 
 Trace files updated after you close the connection / application.
 
-<A name="U"/>
-##_U_nlock an account
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Unlock an account
 
-```
+```sql
 select username, account_status from dba_users where account_status <> 'OPEN' order by username; -- to check for locked accounts 
 alter user USERNAME account unlock;
 ```
@@ -666,9 +654,7 @@ if the account has become locked because the password has expired then use
 alter user USERNAME identified by NEW_PASSWORD account unlock;
 ```
 
-<A name="V"/>
-##_V_ariables
-[A](#A)[B](#B)[C](#C)[D](#D)[E](#E)[F](#F)[G](#G)[H](#H)[I](#I)[J](#J)[K](#K)[L](#L)[M](#M)[N](#N)[O](#O)[P](#P)[Q](#Q)[R](#R)[S](#S)[T](#T)[U](#U)[V](#V)[W](#W)[X](#X)[Y](#Y)[Z](#Z)
+# Variables
 
 How to get the name of a script
 
@@ -678,7 +664,7 @@ REM $$plsql_unit will return a NULL if run in an anon block
 EXEC DBMS_OUTPUT.put_line(NVL($$plsql_unit, 'plsql anon block'));
 ```
 
-###Vectors
+# Vectors or tuples in WHERE IN
 
 ```sql
 with gps_map as (
@@ -697,7 +683,3 @@ select
     (1.1266, -1.2959)
   );
 ```                     
-<A name="W"/>
-<A name="X"/>
-<A name="Y"/>
-<A name="Z"/>
