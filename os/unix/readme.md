@@ -147,9 +147,7 @@ cut work better than ```awk {print $10}``` in osx
 
 ## for loops
 
-````
-for i in {1..100}; do echo $i; done # count from 1 to 100
-```
+`for i in {1..100}; do echo $i; done # count from 1 to 100`
 
 <a name="G" />
 ## git
